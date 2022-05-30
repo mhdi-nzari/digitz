@@ -1,0 +1,724 @@
+
+<section class="product--filter">
+  <div class="product--filter flex justify-around gap-x-7 flex-col md:flex-row mt-10  gap-y-4 ">
+    <div class="product--filter--sort bg-white rounded-default shadow-default  w-full md:w-1/2 lg:hidden"><a class="flex flex-row items-center" href="javascript:void(0)" xs:justify-around="xs:justify-around" sm:.justify-start="sm:.justify-start">
+        <div class="product--filter--sort--img flex flex-row ml-2"> <img class="w-fit" src="./img/sort.png" alt=""/><img class="w-fit" src="./img/arrow-down.png" alt=""/></div>
+        <p class="product--filter--sort__text text-one font-medium slate-800 text-one">محبوب ترین محصول</p></a></div>
+    <div class="product--filter--sort bg-white rounded-default shadow-default  w-full md:w-1/2  lg:hidden" id="filter-btn"><a class="flex flex-row items-center" href="javascript:void(0)"> 
+        <div class="product--filter--sort--img flex flex-row">
+          <svg class="ml-2" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5.3999 2.1001H18.5999C19.6999 2.1001 20.5999 3.0001 20.5999 4.1001V6.3001C20.5999 7.1001 20.0999 8.1001 19.5999 8.6001L15.2999 12.4001C14.6999 12.9001 14.2999 13.9001 14.2999 14.7001V19.0001C14.2999 19.6001 13.8999 20.4001 13.3999 20.7001L11.9999 21.6001C10.6999 22.4001 8.8999 21.5001 8.8999 19.9001V14.6001C8.8999 13.9001 8.4999 13.0001 8.0999 12.5001L4.2999 8.5001C3.7999 8.0001 3.3999 7.1001 3.3999 6.5001V4.2001C3.3999 3.0001 4.2999 2.1001 5.3999 2.1001Z" stroke="#AFAFAF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path opacity="0.4" d="M10.93 2.1001L6 10.0001" stroke="#AFAFAF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <div class="product--filter--sort__text flex flex-row" x-data="{open:false}">
+            <p class="text-one font-medium slate-800 ml-5" x-on:click="open = ! open">فیلتر :</p>
+            <p class="slate-800 text-one font-medium mr-1">برند اپل</p>
+          </div>
+        </div></a></div>
+  </div>
+</section>
+<div class="grid grid-cols-12  md:grid-rows-[55px_minmax(500px,1fr) md:gap-8" id="grid">
+  <aside class="overflow-auto sticky z-9 h-fit col-span-2 row-span-2 p-8 mx-6 bg-white rounded-default shadow-default top-48 hidden lg:block max-h-[calc(100vh_-_140px)]" id="sidbar">
+    <ul class="categorySidebar flex flex-col gap-y-10 orange-400 font-bold text-18">دسته بندی<a class="flex flex-row items-center" href="javascript:void(0)"><img class="ml-5" src="./img/icon-phone.png" alt=""/>
+        <li class="categorySidebar__Item">تلفن همراه</li></a><a class="flex flex-row items-center" href="javascript:void(0)"><img class="ml-5" src="./img/icon-computer.png" alt=""/>
+        <li class="categorySidebar__Item">لب تاپ </li></a><a class="flex flex-row items-center" href="javascript:void(0)"><img class="ml-5" src="./img/icon-watch.png" alt="watch"/>
+        <li class="categorySidebar__Item">ساعت هوشمند</li></a></ul>
+    <div class="filterProducts flex flex-col stone-bk-50 mt-10">
+      <p class="filterProductTitle font-bold orange-400 text-[18px]">فیلتر</p>
+      <div class="filterProduct--detail flex flex-col gap-y-10 my-[21px]"> <a class="filterProduct--detail--brand flex flex-col" href="javascript:void(0)" x-data="{ tabBrand: false }">
+          <div class="filterProduct--detail--brand--wrapper space-x-6 flex flex-row items-center" @click="tabBrand = !tabBrand"><img class="filterProduct--detail--brand--wrapper--icon relative ml-[15px]" src="./img/house.png" alt="icon"/>
+            <p class="filterProduct--detail--brand--wrapper--text font-normal slate-800 text-[15px]" id="itemSidebar">برند محصول</p><img class="transition-all duration-700" src="./img/arrow-up.svg" alt="icon" :class="tabBrand ? 'rotate-180 ' : '' "/>
+          </div>
+          <div class="filterProduct--detail--brand--wrapper--detail flex flex-col gap-y-5 mt-[20px]" x-show="tabBrand" @click.outside="tabBrand = false" x-transition.duration.800ms="x-transition.duration.800ms"> 
+            <div class="filterProduct--detail--brand--wrapper--detail--item">
+              <input class="form-checkbox orange-400 rounded-full p-3" type="checkbox" name=""/>
+              <lable>اپل</lable>
+            </div>
+            <div class="filterProduct--detail--brand--wrapper--detail--item">
+              <input class="form-checkbox orange-400 rounded-full p-3" type="checkbox" name=""/>
+              <lable>سامسونگ</lable>
+            </div>
+            <div class="filterProduct--detail--brand--wrapper--detail--item">
+              <input class="form-checkbox orange-400 rounded-full p-3" type="checkbox" name=""/>
+              <lable>شیائومی</lable>
+            </div>
+            <div class="filterProduct--detail--brand--wrapper--detail--item">
+              <input class="form-checkbox orange-400 rounded-full p-3" type="checkbox" name=""/>
+              <lable>هوآوی</lable>
+            </div>
+          </div></a><a class="filterProduct--detail--color flex flex-col" href="javascript:void(0)" x-data="{tabColor :false}">
+          <div class="filterProduct--detail--color--wrapper space-x-6 flex flex-row items-center" @click="tabColor = ! tabColor"><img class="filterProduct--detail--brand--icon relative ml-[15px]" src="./img/color-swatch.png" alt="icon"/>
+            <p class="filterProduct--detail--brand--text font-normal slate-800 text-[15px]" id="itemSidebar">رنگ محصول</p><img class="transition-all duration-700" src="./img/arrow-up.svg" alt="icon" :class="tabColor ? 'rotate-180': '' "/>
+          </div>
+          <div class="filterProduct--detail--color--wrapper--detail flex flex-col gap-y-5 mt-[20px]" x-show="tabColor" x-transition.duration.800ms="x-transition.duration.800ms" @click.outside="tabColor = false" x-data="{colors:['قرمز','آبی','زرد','سبز','بنفش','صورتی']}">
+            <template x-for="color in colors">
+              <div class="filterProduct--detail--color--wrapper--detail--item">
+                <input class="form-checkbox rounded-full p-3 orange-400" type="checkbox" name=""/>
+                <lable class="slate-800 text-[15px] font-normal" x-text="color"></lable>
+              </div>
+            </template>
+          </div></a><a class="filterProduct--detail--range flex flex-col gap-y-5" href="javascript:void(0)" x-data="{tabRange: false}">
+          <div class="filterProduct--detail--range--wrapper flex flex-row space-x-6 items-center" @click="tabRange = !tabRange" href="javascript:void(0)"><img class="filterProduct--detail--brand--icon relative ml-[15px]" src="./img/wallet.png" alt="icon"/>
+            <p class="filterProduct--detail--brand--text font-normal slate-800 text-[15px]" id="itemSidebar">محدوده قیمت </p><img class="transition-all duration-700" src="./img/arrow-up.svg" alt="icon" :class="tabRange ? 'rotate-180' : '' "/>
+          </div>
+          <div class="filterProduct--detail--range--detail" x-show="tabRange" @click.outside="tabRange = false" x-transition.duration.800ms="x-transition.duration.800ms">
+            <input class="js-range-slider" type="text" name="my_range"/>
+          </div></a></div>
+    </div>
+  </aside>
+  <section class="col-span-10 hidden bg-white rounded-default shadow-default p-8 mx-6 lg:block lg:col-span-10"><a class="flex flex-row items-center xs:justify-around sm:justify-start" href="javascript:void(0)">
+      <div class="product--filter--sort--img flex flex-row ml-2"> <img class="w-fit" src="./img/sort.png" alt=""/><img class="w-fit" src="./img/arrow-down.png" alt=""/></div>
+      <ul class="flex flex-row product--filter--sort__text slate-800 text-one" x-data="{sort:1 , activeClass:'slate-800 font-bold '}">
+        <li class="relative" @click="sort = 1 "><span :class="sort === 1 ? activeClass : '' ">محبوب ترین محصول</span><span class="w-3 h-3 bg-orange-600 rounded-full left-0 -top-3 absolute" x-show="sort === 1"></span></li>
+        <li class="relative" @click="sort = 2 "><span :class="sort === 2 ? activeClass : '' ">پربازدیدترین محصول</span><span class="w-3 h-3 bg-orange-600 rounded-full left-0 -top-3 absolute" x-show="sort === 2"></span></li>
+        <li class="relative" @click="sort = 3 "><span :class="sort === 3 ? activeClass : '' ">گرانترین محصول</span><span class="w-3 h-3 bg-orange-600 rounded-full left-0 -top-3 absolute" x-show="sort === 3"></span></li>
+        <li class="relative" @click="sort = 4 "><span :class="sort === 4 ? activeClass : '' ">ارزان ترین محصول</span><span class="w-3 h-3 bg-orange-600 rounded-full left-0 -top-3 absolute" x-show="sort === 4"></span></li>
+      </ul></a></section>
+  <section class="prdouct product--wrapper col-span-12 grid grid-cols-1  sm:grid-cols-2 md:col-span-12 md:grid-cols-4   lg:col-span-10 lg:grid-cols-5 mt-[20px]     gap-y-9 gap-x-3  ">
+    <figure class="product--wrapper--item rounded-item px-4 py-4 w-full"><a class="inline-block w-full rounded-item relative  p-2 product--wrapper-link slate-bk-200" href="./singlePage.html"><img class="m-auto h-60" src="./img/5.png" alt=""/><img class="p-1.5 w-12 h-12 gray-bk-300 heart absolute top-5 right-5 rounded-full" src="./img/Love.png" alt=""/></a>
+      <figcaption class="product--wrapper--caption mt-6"> 
+        <div class="product--wrapper--caption--brand flex flex-row items-center justify-between"> 
+          <p class="text-[15px] product--wrapper--caption--brand__text font-normal gray-300">تلفن همراه</p>
+          <ul class="product--wrapper--caption--color flex flex-row ml-3" x-data="{color:'red'}">
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full bg-white shadow-default cursor-pointer flex items-center" :class="color === 'white' ? 'ring ring-gray-500 ring-offset-2' : ''" @click="color='white'">
+              <svg class="h-6 w-full stroke-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'white'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'orange' ? 'ring ring-red-400 ring-offset-2' : ''" @click="color='orange'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'orange'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full yellow-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'yellow' ? 'ring ring-yellow-400 ring-offset-2' : ''" @click="color='yellow'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'yellow'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full indigo-bk-600 shadow-default cursor-pointer flex items-center" :class="color === 'indigo' ? 'ring ring-indigo-600 ring-offset-2' : ''" @click="color= 'indigo'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'indigo'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-300 shadow-default cursor-pointer flex items-center" @click="color = 'pink'" :class="color === 'pink' ? 'ring ring-red-300 ring-offset-2' : '' ">
+              <svg class="h-6 w-full stroke-white" x-show="color === 'pink'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+          </ul>
+        </div><a class="product--wrapper--caption--detail" href="./cart.html"> 
+          <p class="product--wrapper--caption--detail__title font-medium slate-900 text-one mt-5"> ساعت هوشمند اپل سری 6	</p>
+          <div class="product--wrapper--caption--detail__price w-full my-5 text-left">	<span class="product--wrapper--caption--detail__price_one orange-700 font-medium text-[17px]">48،250،000</span><span class="product--wrapper--caption--detail__price_text orange-700 font-medium mr-1 text-[14px]"> تومان</span></div></a>
+        <div class="wrapper-line w-64 h-1 bg-gray-300 my-4 m-auto rounded-md"></div><a class="mt-1 orange-400 font-bold text-one text-center block" href="./singlePage.html">مشاهده و سفارش </a>
+      </figcaption>
+    </figure>
+    <figure class="product--wrapper--item rounded-item px-4 py-4 w-full"><a class="inline-block w-full rounded-item relative  p-2 product--wrapper-link slate-bk-200" href="./singlePage.html"><img class="m-auto h-60" src="./img/4.png" alt=""/><img class="p-1.5 w-12 h-12 gray-bk-300 heart absolute top-5 right-5 rounded-full" src="./img/Love.png" alt=""/></a>
+      <figcaption class="product--wrapper--caption mt-6"> 
+        <div class="product--wrapper--caption--brand flex flex-row items-center justify-between"> 
+          <p class="text-[15px] product--wrapper--caption--brand__text font-normal gray-300">تلفن همراه</p>
+          <ul class="product--wrapper--caption--color flex flex-row ml-3" x-data="{color:'red'}">
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full bg-white shadow-default cursor-pointer flex items-center" :class="color === 'white' ? 'ring ring-gray-500 ring-offset-2' : ''" @click="color='white'">
+              <svg class="h-6 w-full stroke-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'white'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'orange' ? 'ring ring-red-400 ring-offset-2' : ''" @click="color='orange'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'orange'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full yellow-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'yellow' ? 'ring ring-yellow-400 ring-offset-2' : ''" @click="color='yellow'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'yellow'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full indigo-bk-600 shadow-default cursor-pointer flex items-center" :class="color === 'indigo' ? 'ring ring-indigo-600 ring-offset-2' : ''" @click="color= 'indigo'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'indigo'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-300 shadow-default cursor-pointer flex items-center" @click="color = 'pink'" :class="color === 'pink' ? 'ring ring-red-300 ring-offset-2' : '' ">
+              <svg class="h-6 w-full stroke-white" x-show="color === 'pink'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+          </ul>
+        </div><a class="product--wrapper--caption--detail" href="./cart.html"> 
+          <p class="product--wrapper--caption--detail__title font-medium slate-900 text-one mt-5"> ساعت هوشمند اپل سری 6	</p>
+          <div class="product--wrapper--caption--detail__price w-full my-5 text-left">	<span class="product--wrapper--caption--detail__price_one orange-700 font-medium text-[17px]">48،250،000</span><span class="product--wrapper--caption--detail__price_text orange-700 font-medium mr-1 text-[14px]"> تومان</span></div></a>
+        <div class="wrapper-line w-64 h-1 bg-gray-300 my-4 m-auto rounded-md"></div><a class="mt-1 orange-400 font-bold text-one text-center block" href="./singlePage.html">مشاهده و سفارش </a>
+      </figcaption>
+    </figure>
+    <figure class="product--wrapper--item rounded-item px-4 py-4 w-full"><a class="inline-block w-full rounded-item relative  p-2 product--wrapper-link slate-bk-200" href="./singlePage.html"><img class="m-auto h-60" src="./img/3.png" alt=""/><img class="p-1.5 w-12 h-12 gray-bk-300 heart absolute top-5 right-5 rounded-full" src="./img/Love.png" alt=""/></a>
+      <figcaption class="product--wrapper--caption mt-6"> 
+        <div class="product--wrapper--caption--brand flex flex-row items-center justify-between"> 
+          <p class="text-[15px] product--wrapper--caption--brand__text font-normal gray-300">تلفن همراه</p>
+          <ul class="product--wrapper--caption--color flex flex-row ml-3" x-data="{color:'red'}">
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full bg-white shadow-default cursor-pointer flex items-center" :class="color === 'white' ? 'ring ring-gray-500 ring-offset-2' : ''" @click="color='white'">
+              <svg class="h-6 w-full stroke-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'white'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'orange' ? 'ring ring-red-400 ring-offset-2' : ''" @click="color='orange'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'orange'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full yellow-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'yellow' ? 'ring ring-yellow-400 ring-offset-2' : ''" @click="color='yellow'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'yellow'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full indigo-bk-600 shadow-default cursor-pointer flex items-center" :class="color === 'indigo' ? 'ring ring-indigo-600 ring-offset-2' : ''" @click="color= 'indigo'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'indigo'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-300 shadow-default cursor-pointer flex items-center" @click="color = 'pink'" :class="color === 'pink' ? 'ring ring-red-300 ring-offset-2' : '' ">
+              <svg class="h-6 w-full stroke-white" x-show="color === 'pink'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+          </ul>
+        </div><a class="product--wrapper--caption--detail" href="./cart.html"> 
+          <p class="product--wrapper--caption--detail__title font-medium slate-900 text-one mt-5"> ساعت هوشمند اپل سری 6	</p>
+          <div class="product--wrapper--caption--detail__price w-full my-5 text-left">	<span class="product--wrapper--caption--detail__price_one orange-700 font-medium text-[17px]">48،250،000</span><span class="product--wrapper--caption--detail__price_text orange-700 font-medium mr-1 text-[14px]"> تومان</span></div></a>
+        <div class="wrapper-line w-64 h-1 bg-gray-300 my-4 m-auto rounded-md"></div><a class="mt-1 orange-400 font-bold text-one text-center block" href="./singlePage.html">مشاهده و سفارش </a>
+      </figcaption>
+    </figure>
+    <figure class="product--wrapper--item rounded-item px-4 py-4 w-full"><a class="inline-block w-full rounded-item relative  p-2 product--wrapper-link slate-bk-200" href="./singlePage.html"><img class="m-auto h-60" src="./img/2.png" alt=""/><img class="p-1.5 w-12 h-12 gray-bk-300 heart absolute top-5 right-5 rounded-full" src="./img/Love.png" alt=""/></a>
+      <figcaption class="product--wrapper--caption mt-6"> 
+        <div class="product--wrapper--caption--brand flex flex-row items-center justify-between"> 
+          <p class="text-[15px] product--wrapper--caption--brand__text font-normal gray-300">تلفن همراه</p>
+          <ul class="product--wrapper--caption--color flex flex-row ml-3" x-data="{color:'red'}">
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full bg-white shadow-default cursor-pointer flex items-center" :class="color === 'white' ? 'ring ring-gray-500 ring-offset-2' : ''" @click="color='white'">
+              <svg class="h-6 w-full stroke-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'white'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'orange' ? 'ring ring-red-400 ring-offset-2' : ''" @click="color='orange'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'orange'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full yellow-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'yellow' ? 'ring ring-yellow-400 ring-offset-2' : ''" @click="color='yellow'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'yellow'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full indigo-bk-600 shadow-default cursor-pointer flex items-center" :class="color === 'indigo' ? 'ring ring-indigo-600 ring-offset-2' : ''" @click="color= 'indigo'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'indigo'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-300 shadow-default cursor-pointer flex items-center" @click="color = 'pink'" :class="color === 'pink' ? 'ring ring-red-300 ring-offset-2' : '' ">
+              <svg class="h-6 w-full stroke-white" x-show="color === 'pink'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+          </ul>
+        </div><a class="product--wrapper--caption--detail" href="./cart.html"> 
+          <p class="product--wrapper--caption--detail__title font-medium slate-900 text-one mt-5"> ساعت هوشمند اپل سری 6	</p>
+          <div class="product--wrapper--caption--detail__price w-full my-5 text-left">	<span class="product--wrapper--caption--detail__price_one orange-700 font-medium text-[17px]">48،250،000</span><span class="product--wrapper--caption--detail__price_text orange-700 font-medium mr-1 text-[14px]"> تومان</span></div></a>
+        <div class="wrapper-line w-64 h-1 bg-gray-300 my-4 m-auto rounded-md"></div><a class="mt-1 orange-400 font-bold text-one text-center block" href="./singlePage.html">مشاهده و سفارش </a>
+      </figcaption>
+    </figure>
+    <figure class="product--wrapper--item rounded-item px-4 py-4 w-full"><a class="inline-block w-full rounded-item relative  p-2 product--wrapper-link slate-bk-200" href="./singlePage.html"><img class="m-auto h-60" src="./img/1.png" alt=""/><img class="p-1.5 w-12 h-12 gray-bk-300 heart absolute top-5 right-5 rounded-full" src="./img/Love.png" alt=""/></a>
+      <figcaption class="product--wrapper--caption mt-6"> 
+        <div class="product--wrapper--caption--brand flex flex-row items-center justify-between"> 
+          <p class="text-[15px] product--wrapper--caption--brand__text font-normal gray-300">تلفن همراه</p>
+          <ul class="product--wrapper--caption--color flex flex-row ml-3" x-data="{color:'red'}">
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full bg-white shadow-default cursor-pointer flex items-center" :class="color === 'white' ? 'ring ring-gray-500 ring-offset-2' : ''" @click="color='white'">
+              <svg class="h-6 w-full stroke-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'white'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'orange' ? 'ring ring-red-400 ring-offset-2' : ''" @click="color='orange'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'orange'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full yellow-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'yellow' ? 'ring ring-yellow-400 ring-offset-2' : ''" @click="color='yellow'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'yellow'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full indigo-bk-600 shadow-default cursor-pointer flex items-center" :class="color === 'indigo' ? 'ring ring-indigo-600 ring-offset-2' : ''" @click="color= 'indigo'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'indigo'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-300 shadow-default cursor-pointer flex items-center" @click="color = 'pink'" :class="color === 'pink' ? 'ring ring-red-300 ring-offset-2' : '' ">
+              <svg class="h-6 w-full stroke-white" x-show="color === 'pink'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+          </ul>
+        </div><a class="product--wrapper--caption--detail" href="./cart.html"> 
+          <p class="product--wrapper--caption--detail__title font-medium slate-900 text-one mt-5"> ساعت هوشمند اپل سری 6	</p>
+          <div class="product--wrapper--caption--detail__price w-full my-5 text-left">	<span class="product--wrapper--caption--detail__price_one orange-700 font-medium text-[17px]">48،250،000</span><span class="product--wrapper--caption--detail__price_text orange-700 font-medium mr-1 text-[14px]"> تومان</span></div></a>
+        <div class="wrapper-line w-64 h-1 bg-gray-300 my-4 m-auto rounded-md"></div><a class="mt-1 orange-400 font-bold text-one text-center block" href="./singlePage.html">مشاهده و سفارش </a>
+      </figcaption>
+    </figure>
+    <figure class="product--wrapper--item rounded-item px-4 py-4 w-full"><a class="inline-block w-full rounded-item relative  p-2 product--wrapper-link slate-bk-200" href="./singlePage.html"><img class="m-auto h-60" src="./img/5.png" alt=""/><img class="p-1.5 w-12 h-12 gray-bk-300 heart absolute top-5 right-5 rounded-full" src="./img/Love.png" alt=""/></a>
+      <figcaption class="product--wrapper--caption mt-6"> 
+        <div class="product--wrapper--caption--brand flex flex-row items-center justify-between"> 
+          <p class="text-[15px] product--wrapper--caption--brand__text font-normal gray-300">تلفن همراه</p>
+          <ul class="product--wrapper--caption--color flex flex-row ml-3" x-data="{color:'red'}">
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full bg-white shadow-default cursor-pointer flex items-center" :class="color === 'white' ? 'ring ring-gray-500 ring-offset-2' : ''" @click="color='white'">
+              <svg class="h-6 w-full stroke-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'white'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'orange' ? 'ring ring-red-400 ring-offset-2' : ''" @click="color='orange'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'orange'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full yellow-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'yellow' ? 'ring ring-yellow-400 ring-offset-2' : ''" @click="color='yellow'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'yellow'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full indigo-bk-600 shadow-default cursor-pointer flex items-center" :class="color === 'indigo' ? 'ring ring-indigo-600 ring-offset-2' : ''" @click="color= 'indigo'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'indigo'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-300 shadow-default cursor-pointer flex items-center" @click="color = 'pink'" :class="color === 'pink' ? 'ring ring-red-300 ring-offset-2' : '' ">
+              <svg class="h-6 w-full stroke-white" x-show="color === 'pink'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+          </ul>
+        </div><a class="product--wrapper--caption--detail" href="./cart.html"> 
+          <p class="product--wrapper--caption--detail__title font-medium slate-900 text-one mt-5"> ساعت هوشمند اپل سری 6	</p>
+          <div class="product--wrapper--caption--detail__price w-full my-5 text-left">	<span class="product--wrapper--caption--detail__price_one orange-700 font-medium text-[17px]">48،250،000</span><span class="product--wrapper--caption--detail__price_text orange-700 font-medium mr-1 text-[14px]"> تومان</span></div></a>
+        <div class="wrapper-line w-64 h-1 bg-gray-300 my-4 m-auto rounded-md"></div><a class="mt-1 orange-400 font-bold text-one text-center block" href="./singlePage.html">مشاهده و سفارش </a>
+      </figcaption>
+    </figure>
+    <figure class="product--wrapper--item rounded-item px-4 py-4 w-full"><a class="inline-block w-full rounded-item relative  p-2 product--wrapper-link slate-bk-200" href="./singlePage.html"><img class="m-auto h-60" src="./img/4.png" alt=""/><img class="p-1.5 w-12 h-12 gray-bk-300 heart absolute top-5 right-5 rounded-full" src="./img/Love.png" alt=""/></a>
+      <figcaption class="product--wrapper--caption mt-6"> 
+        <div class="product--wrapper--caption--brand flex flex-row items-center justify-between"> 
+          <p class="text-[15px] product--wrapper--caption--brand__text font-normal gray-300">تلفن همراه</p>
+          <ul class="product--wrapper--caption--color flex flex-row ml-3" x-data="{color:'red'}">
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full bg-white shadow-default cursor-pointer flex items-center" :class="color === 'white' ? 'ring ring-gray-500 ring-offset-2' : ''" @click="color='white'">
+              <svg class="h-6 w-full stroke-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'white'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'orange' ? 'ring ring-red-400 ring-offset-2' : ''" @click="color='orange'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'orange'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full yellow-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'yellow' ? 'ring ring-yellow-400 ring-offset-2' : ''" @click="color='yellow'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'yellow'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full indigo-bk-600 shadow-default cursor-pointer flex items-center" :class="color === 'indigo' ? 'ring ring-indigo-600 ring-offset-2' : ''" @click="color= 'indigo'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'indigo'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-300 shadow-default cursor-pointer flex items-center" @click="color = 'pink'" :class="color === 'pink' ? 'ring ring-red-300 ring-offset-2' : '' ">
+              <svg class="h-6 w-full stroke-white" x-show="color === 'pink'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+          </ul>
+        </div><a class="product--wrapper--caption--detail" href="./cart.html"> 
+          <p class="product--wrapper--caption--detail__title font-medium slate-900 text-one mt-5"> ساعت هوشمند اپل سری 6	</p>
+          <div class="product--wrapper--caption--detail__price w-full my-5 text-left">	<span class="product--wrapper--caption--detail__price_one orange-700 font-medium text-[17px]">48،250،000</span><span class="product--wrapper--caption--detail__price_text orange-700 font-medium mr-1 text-[14px]"> تومان</span></div></a>
+        <div class="wrapper-line w-64 h-1 bg-gray-300 my-4 m-auto rounded-md"></div><a class="mt-1 orange-400 font-bold text-one text-center block" href="./singlePage.html">مشاهده و سفارش </a>
+      </figcaption>
+    </figure>
+    <figure class="product--wrapper--item rounded-item px-4 py-4 w-full"><a class="inline-block w-full rounded-item relative  p-2 product--wrapper-link slate-bk-200" href="./singlePage.html"><img class="m-auto h-60" src="./img/3.png" alt=""/><img class="p-1.5 w-12 h-12 gray-bk-300 heart absolute top-5 right-5 rounded-full" src="./img/Love.png" alt=""/></a>
+      <figcaption class="product--wrapper--caption mt-6"> 
+        <div class="product--wrapper--caption--brand flex flex-row items-center justify-between"> 
+          <p class="text-[15px] product--wrapper--caption--brand__text font-normal gray-300">تلفن همراه</p>
+          <ul class="product--wrapper--caption--color flex flex-row ml-3" x-data="{color:'red'}">
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full bg-white shadow-default cursor-pointer flex items-center" :class="color === 'white' ? 'ring ring-gray-500 ring-offset-2' : ''" @click="color='white'">
+              <svg class="h-6 w-full stroke-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'white'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'orange' ? 'ring ring-red-400 ring-offset-2' : ''" @click="color='orange'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'orange'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full yellow-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'yellow' ? 'ring ring-yellow-400 ring-offset-2' : ''" @click="color='yellow'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'yellow'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full indigo-bk-600 shadow-default cursor-pointer flex items-center" :class="color === 'indigo' ? 'ring ring-indigo-600 ring-offset-2' : ''" @click="color= 'indigo'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'indigo'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-300 shadow-default cursor-pointer flex items-center" @click="color = 'pink'" :class="color === 'pink' ? 'ring ring-red-300 ring-offset-2' : '' ">
+              <svg class="h-6 w-full stroke-white" x-show="color === 'pink'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+          </ul>
+        </div><a class="product--wrapper--caption--detail" href="./cart.html"> 
+          <p class="product--wrapper--caption--detail__title font-medium slate-900 text-one mt-5"> ساعت هوشمند اپل سری 6	</p>
+          <div class="product--wrapper--caption--detail__price w-full my-5 text-left">	<span class="product--wrapper--caption--detail__price_one orange-700 font-medium text-[17px]">48،250،000</span><span class="product--wrapper--caption--detail__price_text orange-700 font-medium mr-1 text-[14px]"> تومان</span></div></a>
+        <div class="wrapper-line w-64 h-1 bg-gray-300 my-4 m-auto rounded-md"></div><a class="mt-1 orange-400 font-bold text-one text-center block" href="./singlePage.html">مشاهده و سفارش </a>
+      </figcaption>
+    </figure>
+    <figure class="product--wrapper--item rounded-item px-4 py-4 w-full"><a class="inline-block w-full rounded-item relative  p-2 product--wrapper-link slate-bk-200" href="./singlePage.html"><img class="m-auto h-60" src="./img/2.png" alt=""/><img class="p-1.5 w-12 h-12 gray-bk-300 heart absolute top-5 right-5 rounded-full" src="./img/Love.png" alt=""/></a>
+      <figcaption class="product--wrapper--caption mt-6"> 
+        <div class="product--wrapper--caption--brand flex flex-row items-center justify-between"> 
+          <p class="text-[15px] product--wrapper--caption--brand__text font-normal gray-300">تلفن همراه</p>
+          <ul class="product--wrapper--caption--color flex flex-row ml-3" x-data="{color:'red'}">
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full bg-white shadow-default cursor-pointer flex items-center" :class="color === 'white' ? 'ring ring-gray-500 ring-offset-2' : ''" @click="color='white'">
+              <svg class="h-6 w-full stroke-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'white'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'orange' ? 'ring ring-red-400 ring-offset-2' : ''" @click="color='orange'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'orange'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full yellow-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'yellow' ? 'ring ring-yellow-400 ring-offset-2' : ''" @click="color='yellow'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'yellow'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full indigo-bk-600 shadow-default cursor-pointer flex items-center" :class="color === 'indigo' ? 'ring ring-indigo-600 ring-offset-2' : ''" @click="color= 'indigo'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'indigo'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-300 shadow-default cursor-pointer flex items-center" @click="color = 'pink'" :class="color === 'pink' ? 'ring ring-red-300 ring-offset-2' : '' ">
+              <svg class="h-6 w-full stroke-white" x-show="color === 'pink'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+          </ul>
+        </div><a class="product--wrapper--caption--detail" href="./cart.html"> 
+          <p class="product--wrapper--caption--detail__title font-medium slate-900 text-one mt-5"> ساعت هوشمند اپل سری 6	</p>
+          <div class="product--wrapper--caption--detail__price w-full my-5 text-left">	<span class="product--wrapper--caption--detail__price_one orange-700 font-medium text-[17px]">48،250،000</span><span class="product--wrapper--caption--detail__price_text orange-700 font-medium mr-1 text-[14px]"> تومان</span></div></a>
+        <div class="wrapper-line w-64 h-1 bg-gray-300 my-4 m-auto rounded-md"></div><a class="mt-1 orange-400 font-bold text-one text-center block" href="./singlePage.html">مشاهده و سفارش </a>
+      </figcaption>
+    </figure>
+    <figure class="product--wrapper--item rounded-item px-4 py-4 w-full"><a class="inline-block w-full rounded-item relative  p-2 product--wrapper-link slate-bk-200" href="./singlePage.html"><img class="m-auto h-60" src="./img/1.png" alt=""/><img class="p-1.5 w-12 h-12 gray-bk-300 heart absolute top-5 right-5 rounded-full" src="./img/Love.png" alt=""/></a>
+      <figcaption class="product--wrapper--caption mt-6"> 
+        <div class="product--wrapper--caption--brand flex flex-row items-center justify-between"> 
+          <p class="text-[15px] product--wrapper--caption--brand__text font-normal gray-300">تلفن همراه</p>
+          <ul class="product--wrapper--caption--color flex flex-row ml-3" x-data="{color:'red'}">
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full bg-white shadow-default cursor-pointer flex items-center" :class="color === 'white' ? 'ring ring-gray-500 ring-offset-2' : ''" @click="color='white'">
+              <svg class="h-6 w-full stroke-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'white'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'orange' ? 'ring ring-red-400 ring-offset-2' : ''" @click="color='orange'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'orange'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full yellow-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'yellow' ? 'ring ring-yellow-400 ring-offset-2' : ''" @click="color='yellow'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'yellow'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full indigo-bk-600 shadow-default cursor-pointer flex items-center" :class="color === 'indigo' ? 'ring ring-indigo-600 ring-offset-2' : ''" @click="color= 'indigo'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'indigo'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-300 shadow-default cursor-pointer flex items-center" @click="color = 'pink'" :class="color === 'pink' ? 'ring ring-red-300 ring-offset-2' : '' ">
+              <svg class="h-6 w-full stroke-white" x-show="color === 'pink'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+          </ul>
+        </div><a class="product--wrapper--caption--detail" href="./cart.html"> 
+          <p class="product--wrapper--caption--detail__title font-medium slate-900 text-one mt-5"> ساعت هوشمند اپل سری 6	</p>
+          <div class="product--wrapper--caption--detail__price w-full my-5 text-left">	<span class="product--wrapper--caption--detail__price_one orange-700 font-medium text-[17px]">48،250،000</span><span class="product--wrapper--caption--detail__price_text orange-700 font-medium mr-1 text-[14px]"> تومان</span></div></a>
+        <div class="wrapper-line w-64 h-1 bg-gray-300 my-4 m-auto rounded-md"></div><a class="mt-1 orange-400 font-bold text-one text-center block" href="./singlePage.html">مشاهده و سفارش </a>
+      </figcaption>
+    </figure>
+    <figure class="product--wrapper--item rounded-item px-4 py-4 w-full"><a class="inline-block w-full rounded-item relative  p-2 product--wrapper-link slate-bk-200" href="./singlePage.html"><img class="m-auto h-60" src="./img/5.png" alt=""/><img class="p-1.5 w-12 h-12 gray-bk-300 heart absolute top-5 right-5 rounded-full" src="./img/Love.png" alt=""/></a>
+      <figcaption class="product--wrapper--caption mt-6"> 
+        <div class="product--wrapper--caption--brand flex flex-row items-center justify-between"> 
+          <p class="text-[15px] product--wrapper--caption--brand__text font-normal gray-300">تلفن همراه</p>
+          <ul class="product--wrapper--caption--color flex flex-row ml-3" x-data="{color:'red'}">
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full bg-white shadow-default cursor-pointer flex items-center" :class="color === 'white' ? 'ring ring-gray-500 ring-offset-2' : ''" @click="color='white'">
+              <svg class="h-6 w-full stroke-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'white'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'orange' ? 'ring ring-red-400 ring-offset-2' : ''" @click="color='orange'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'orange'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full yellow-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'yellow' ? 'ring ring-yellow-400 ring-offset-2' : ''" @click="color='yellow'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'yellow'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full indigo-bk-600 shadow-default cursor-pointer flex items-center" :class="color === 'indigo' ? 'ring ring-indigo-600 ring-offset-2' : ''" @click="color= 'indigo'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'indigo'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-300 shadow-default cursor-pointer flex items-center" @click="color = 'pink'" :class="color === 'pink' ? 'ring ring-red-300 ring-offset-2' : '' ">
+              <svg class="h-6 w-full stroke-white" x-show="color === 'pink'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+          </ul>
+        </div><a class="product--wrapper--caption--detail" href="./cart.html"> 
+          <p class="product--wrapper--caption--detail__title font-medium slate-900 text-one mt-5"> ساعت هوشمند اپل سری 6	</p>
+          <div class="product--wrapper--caption--detail__price w-full my-5 text-left">	<span class="product--wrapper--caption--detail__price_one orange-700 font-medium text-[17px]">48،250،000</span><span class="product--wrapper--caption--detail__price_text orange-700 font-medium mr-1 text-[14px]"> تومان</span></div></a>
+        <div class="wrapper-line w-64 h-1 bg-gray-300 my-4 m-auto rounded-md"></div><a class="mt-1 orange-400 font-bold text-one text-center block" href="./singlePage.html">مشاهده و سفارش </a>
+      </figcaption>
+    </figure>
+    <figure class="product--wrapper--item rounded-item px-4 py-4 w-full"><a class="inline-block w-full rounded-item relative  p-2 product--wrapper-link slate-bk-200" href="./singlePage.html"><img class="m-auto h-60" src="./img/4.png" alt=""/><img class="p-1.5 w-12 h-12 gray-bk-300 heart absolute top-5 right-5 rounded-full" src="./img/Love.png" alt=""/></a>
+      <figcaption class="product--wrapper--caption mt-6"> 
+        <div class="product--wrapper--caption--brand flex flex-row items-center justify-between"> 
+          <p class="text-[15px] product--wrapper--caption--brand__text font-normal gray-300">تلفن همراه</p>
+          <ul class="product--wrapper--caption--color flex flex-row ml-3" x-data="{color:'red'}">
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full bg-white shadow-default cursor-pointer flex items-center" :class="color === 'white' ? 'ring ring-gray-500 ring-offset-2' : ''" @click="color='white'">
+              <svg class="h-6 w-full stroke-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'white'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'orange' ? 'ring ring-red-400 ring-offset-2' : ''" @click="color='orange'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'orange'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full yellow-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'yellow' ? 'ring ring-yellow-400 ring-offset-2' : ''" @click="color='yellow'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'yellow'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full indigo-bk-600 shadow-default cursor-pointer flex items-center" :class="color === 'indigo' ? 'ring ring-indigo-600 ring-offset-2' : ''" @click="color= 'indigo'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'indigo'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-300 shadow-default cursor-pointer flex items-center" @click="color = 'pink'" :class="color === 'pink' ? 'ring ring-red-300 ring-offset-2' : '' ">
+              <svg class="h-6 w-full stroke-white" x-show="color === 'pink'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+          </ul>
+        </div><a class="product--wrapper--caption--detail" href="./cart.html"> 
+          <p class="product--wrapper--caption--detail__title font-medium slate-900 text-one mt-5"> ساعت هوشمند اپل سری 6	</p>
+          <div class="product--wrapper--caption--detail__price w-full my-5 text-left">	<span class="product--wrapper--caption--detail__price_one orange-700 font-medium text-[17px]">48،250،000</span><span class="product--wrapper--caption--detail__price_text orange-700 font-medium mr-1 text-[14px]"> تومان</span></div></a>
+        <div class="wrapper-line w-64 h-1 bg-gray-300 my-4 m-auto rounded-md"></div><a class="mt-1 orange-400 font-bold text-one text-center block" href="./singlePage.html">مشاهده و سفارش </a>
+      </figcaption>
+    </figure>
+    <figure class="product--wrapper--item rounded-item px-4 py-4 w-full"><a class="inline-block w-full rounded-item relative  p-2 product--wrapper-link slate-bk-200" href="./singlePage.html"><img class="m-auto h-60" src="./img/3.png" alt=""/><img class="p-1.5 w-12 h-12 gray-bk-300 heart absolute top-5 right-5 rounded-full" src="./img/Love.png" alt=""/></a>
+      <figcaption class="product--wrapper--caption mt-6"> 
+        <div class="product--wrapper--caption--brand flex flex-row items-center justify-between"> 
+          <p class="text-[15px] product--wrapper--caption--brand__text font-normal gray-300">تلفن همراه</p>
+          <ul class="product--wrapper--caption--color flex flex-row ml-3" x-data="{color:'red'}">
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full bg-white shadow-default cursor-pointer flex items-center" :class="color === 'white' ? 'ring ring-gray-500 ring-offset-2' : ''" @click="color='white'">
+              <svg class="h-6 w-full stroke-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'white'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'orange' ? 'ring ring-red-400 ring-offset-2' : ''" @click="color='orange'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'orange'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full yellow-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'yellow' ? 'ring ring-yellow-400 ring-offset-2' : ''" @click="color='yellow'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'yellow'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full indigo-bk-600 shadow-default cursor-pointer flex items-center" :class="color === 'indigo' ? 'ring ring-indigo-600 ring-offset-2' : ''" @click="color= 'indigo'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'indigo'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-300 shadow-default cursor-pointer flex items-center" @click="color = 'pink'" :class="color === 'pink' ? 'ring ring-red-300 ring-offset-2' : '' ">
+              <svg class="h-6 w-full stroke-white" x-show="color === 'pink'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+          </ul>
+        </div><a class="product--wrapper--caption--detail" href="./cart.html"> 
+          <p class="product--wrapper--caption--detail__title font-medium slate-900 text-one mt-5"> ساعت هوشمند اپل سری 6	</p>
+          <div class="product--wrapper--caption--detail__price w-full my-5 text-left">	<span class="product--wrapper--caption--detail__price_one orange-700 font-medium text-[17px]">48،250،000</span><span class="product--wrapper--caption--detail__price_text orange-700 font-medium mr-1 text-[14px]"> تومان</span></div></a>
+        <div class="wrapper-line w-64 h-1 bg-gray-300 my-4 m-auto rounded-md"></div><a class="mt-1 orange-400 font-bold text-one text-center block" href="./singlePage.html">مشاهده و سفارش </a>
+      </figcaption>
+    </figure>
+    <figure class="product--wrapper--item rounded-item px-4 py-4 w-full"><a class="inline-block w-full rounded-item relative  p-2 product--wrapper-link slate-bk-200" href="./singlePage.html"><img class="m-auto h-60" src="./img/2.png" alt=""/><img class="p-1.5 w-12 h-12 gray-bk-300 heart absolute top-5 right-5 rounded-full" src="./img/Love.png" alt=""/></a>
+      <figcaption class="product--wrapper--caption mt-6"> 
+        <div class="product--wrapper--caption--brand flex flex-row items-center justify-between"> 
+          <p class="text-[15px] product--wrapper--caption--brand__text font-normal gray-300">تلفن همراه</p>
+          <ul class="product--wrapper--caption--color flex flex-row ml-3" x-data="{color:'red'}">
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full bg-white shadow-default cursor-pointer flex items-center" :class="color === 'white' ? 'ring ring-gray-500 ring-offset-2' : ''" @click="color='white'">
+              <svg class="h-6 w-full stroke-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'white'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'orange' ? 'ring ring-red-400 ring-offset-2' : ''" @click="color='orange'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'orange'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full yellow-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'yellow' ? 'ring ring-yellow-400 ring-offset-2' : ''" @click="color='yellow'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'yellow'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full indigo-bk-600 shadow-default cursor-pointer flex items-center" :class="color === 'indigo' ? 'ring ring-indigo-600 ring-offset-2' : ''" @click="color= 'indigo'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'indigo'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-300 shadow-default cursor-pointer flex items-center" @click="color = 'pink'" :class="color === 'pink' ? 'ring ring-red-300 ring-offset-2' : '' ">
+              <svg class="h-6 w-full stroke-white" x-show="color === 'pink'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+          </ul>
+        </div><a class="product--wrapper--caption--detail" href="./cart.html"> 
+          <p class="product--wrapper--caption--detail__title font-medium slate-900 text-one mt-5"> ساعت هوشمند اپل سری 6	</p>
+          <div class="product--wrapper--caption--detail__price w-full my-5 text-left">	<span class="product--wrapper--caption--detail__price_one orange-700 font-medium text-[17px]">48،250،000</span><span class="product--wrapper--caption--detail__price_text orange-700 font-medium mr-1 text-[14px]"> تومان</span></div></a>
+        <div class="wrapper-line w-64 h-1 bg-gray-300 my-4 m-auto rounded-md"></div><a class="mt-1 orange-400 font-bold text-one text-center block" href="./singlePage.html">مشاهده و سفارش </a>
+      </figcaption>
+    </figure>
+    <figure class="product--wrapper--item rounded-item px-4 py-4 w-full"><a class="inline-block w-full rounded-item relative  p-2 product--wrapper-link slate-bk-200" href="./singlePage.html"><img class="m-auto h-60" src="./img/1.png" alt=""/><img class="p-1.5 w-12 h-12 gray-bk-300 heart absolute top-5 right-5 rounded-full" src="./img/Love.png" alt=""/></a>
+      <figcaption class="product--wrapper--caption mt-6"> 
+        <div class="product--wrapper--caption--brand flex flex-row items-center justify-between"> 
+          <p class="text-[15px] product--wrapper--caption--brand__text font-normal gray-300">تلفن همراه</p>
+          <ul class="product--wrapper--caption--color flex flex-row ml-3" x-data="{color:'red'}">
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full bg-white shadow-default cursor-pointer flex items-center" :class="color === 'white' ? 'ring ring-gray-500 ring-offset-2' : ''" @click="color='white'">
+              <svg class="h-6 w-full stroke-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'white'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'orange' ? 'ring ring-red-400 ring-offset-2' : ''" @click="color='orange'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'orange'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full yellow-bk-400 shadow-default cursor-pointer flex items-center" :class="color === 'yellow' ? 'ring ring-yellow-400 ring-offset-2' : ''" @click="color='yellow'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'yellow'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full indigo-bk-600 shadow-default cursor-pointer flex items-center" :class="color === 'indigo' ? 'ring ring-indigo-600 ring-offset-2' : ''" @click="color= 'indigo'">
+              <svg class="h-6 w-full stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" x-show="color === 'indigo'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li class="-ml-3.5 product--wrapper--caption--color__item w-8 h-8 rounded-full orange-bk-300 shadow-default cursor-pointer flex items-center" @click="color = 'pink'" :class="color === 'pink' ? 'ring ring-red-300 ring-offset-2' : '' ">
+              <svg class="h-6 w-full stroke-white" x-show="color === 'pink'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+          </ul>
+        </div><a class="product--wrapper--caption--detail" href="./cart.html"> 
+          <p class="product--wrapper--caption--detail__title font-medium slate-900 text-one mt-5"> ساعت هوشمند اپل سری 6	</p>
+          <div class="product--wrapper--caption--detail__price w-full my-5 text-left">	<span class="product--wrapper--caption--detail__price_one orange-700 font-medium text-[17px]">48،250،000</span><span class="product--wrapper--caption--detail__price_text orange-700 font-medium mr-1 text-[14px]"> تومان</span></div></a>
+        <div class="wrapper-line w-64 h-1 bg-gray-300 my-4 m-auto rounded-md"></div><a class="mt-1 orange-400 font-bold text-one text-center block" href="./singlePage.html">مشاهده و سفارش </a>
+      </figcaption>
+    </figure>
+  </section>
+  <ul class="pagination w-full flex flex-row justify-center col-span-12 mt-10 items-center flex-wrap"><a class="for" href="javascript:void(0)">
+      <svg width="21" height="17" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.56863 2.00691C6.50235 1.3372 5.48594 0.780245 4.71349 0.469C4.37526 0.3248 3.52012 0.0196 3.06322 0C2.62543 0 2.20809 0.1008 1.80984 0.3052C1.3134 0.5908 0.91515 1.0402 0.696932 1.5708C0.556455 1.939 0.338238 3.0408 0.338238 3.0604C0.12002 4.2658 0 6.2244 0 8.3888C0 10.451 0.12002 12.3298 0.298685 13.5534C0.303834 13.5583 0.321509 13.6488 0.348884 13.7888C0.430279 14.2052 0.597429 15.0602 0.776035 15.4112C1.21383 16.268 2.06897 16.8 2.98412 16.8H3.06322C3.65923 16.779 4.91262 16.247 4.91262 16.2274C5.62213 15.9248 6.56406 15.407 7.56523 14.7825C7.63001 15.0339 7.70204 15.2658 7.77604 15.4112C8.21383 16.268 9.06897 16.8 9.98412 16.8H10.0632C10.6592 16.779 11.9126 16.247 11.9126 16.2274C14.0198 15.3286 18.1768 12.5328 19.8475 10.675C19.8475 10.675 20.3181 10.1976 20.5226 9.8994C20.8418 9.471 21 8.9404 21 8.4098C21 7.8176 20.8213 7.266 20.4831 6.8166C20.4556 6.78836 20.4015 6.72795 20.331 6.64915C20.1987 6.50136 20.0086 6.28888 19.8271 6.1026C18.1959 4.3064 13.9407 1.3664 11.7135 0.469C11.3753 0.3248 10.5201 0.0196 10.0632 0C9.62543 0 9.20809 0.1008 8.80984 0.3052C8.3134 0.5908 7.91515 1.0402 7.69693 1.5708C7.65803 1.67277 7.61317 1.83099 7.56863 2.00691Z" fill="#222F5D" fill-opacity="0.46"></path>
+      </svg></a><a class="for mr-5" href="javascript:void(0)">
+      <svg width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.4831 6.8166C13.404 6.7354 13.1053 6.3882 12.8271 6.1026C11.1959 4.3064 6.94067 1.3664 4.71349 0.469C4.37526 0.3248 3.52012 0.0196 3.06322 0C2.62543 0 2.20809 0.1008 1.80984 0.3052C1.3134 0.5908 0.91515 1.0402 0.696932 1.5708C0.556455 1.939 0.338238 3.0408 0.338238 3.0604C0.12002 4.2658 0 6.2244 0 8.3888C0 10.451 0.12002 12.3298 0.298685 13.5534C0.319143 13.573 0.53736 14.9422 0.776035 15.4112C1.21383 16.268 2.06897 16.8 2.98412 16.8H3.06322C3.65923 16.779 4.91262 16.247 4.91262 16.2274C7.01978 15.3286 11.1768 12.5328 12.8475 10.675C12.8475 10.675 13.3181 10.1976 13.5226 9.8994C13.8418 9.471 14 8.9404 14 8.4098C14 7.8176 13.8213 7.266 13.4831 6.8166Z" fill="#222F5D" fill-opacity="0.46"> </path>
+      </svg></a><a class="mx-3 px-4 py-3  rounded-md hover:orange-bk-600 slate-800 transition-all delay-800 ease-in-out" href="javascript:void(0)">
+      <li class="pagination__item slate-700 font-bold text-18">0</li></a><a class="mx-3 px-4 py-3  rounded-md hover:orange-bk-600 slate-800 transition-all delay-800 ease-in-out" href="javascript:void(0)">
+      <li class="pagination__item slate-700 font-bold text-18">1</li></a><a class="mx-3 px-4 py-3  rounded-md hover:orange-bk-600 slate-800 transition-all delay-800 ease-in-out" href="javascript:void(0)">
+      <li class="pagination__item slate-700 font-bold text-18">2</li></a><a class="mx-3 px-4 py-3  rounded-md hover:orange-bk-600 slate-800 transition-all delay-800 ease-in-out" href="javascript:void(0)">
+      <li class="pagination__item slate-700 font-bold text-18">3</li></a><a class="mx-3 px-4 py-3  rounded-md hover:orange-bk-600 slate-800 transition-all delay-800 ease-in-out" href="javascript:void(0)">
+      <li class="pagination__item slate-700 font-bold text-18">4</li></a><a class="mx-3 px-4 py-3  rounded-md hover:orange-bk-600 slate-800 transition-all delay-800 ease-in-out" href="javascript:void(0)">
+      <li class="pagination__item slate-700 font-bold text-18">5</li></a><a class="mx-3 px-4 py-3  rounded-md hover:orange-bk-600 slate-800 transition-all delay-800 ease-in-out" href="javascript:void(0)">
+      <li class="pagination__item slate-700 font-bold text-18">6</li></a><a class="mx-3 px-4 py-3  rounded-md hover:orange-bk-600 slate-800 transition-all delay-800 ease-in-out" href="javascript:void(0)">
+      <li class="pagination__item slate-700 font-bold text-18">7</li></a><a class="mx-3 px-4 py-3  rounded-md hover:orange-bk-600 slate-800 transition-all delay-800 ease-in-out" href="javascript:void(0)">
+      <li class="pagination__item slate-700 font-bold text-18">8</li></a><a class="mx-3 px-4 py-3  rounded-md hover:orange-bk-600 slate-800 transition-all delay-800 ease-in-out" href="javascript:void(0)">
+      <li class="pagination__item slate-700 font-bold text-18">9</li></a><a class="mx-3 px-4 py-3  rounded-md hover:orange-bk-600 slate-800 transition-all delay-800 ease-in-out" href="javascript:void(0)">
+      <li class="pagination__item slate-700 font-bold text-18">10</li></a><a class="for ml-5" href="javascript:void(0)">
+      <svg width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.516902 6.8166C0.596006 6.7354 0.894691 6.3882 1.17292 6.1026C2.80409 4.3064 7.05933 1.3664 9.28651 0.469C9.62474 0.3248 10.4799 0.0196 10.9368 0C11.3746 0 11.7919 0.1008 12.1902 0.3052C12.6866 0.5908 13.0849 1.0402 13.3031 1.5708C13.4435 1.939 13.6618 3.0408 13.6618 3.0604C13.88 4.2658 14 6.2244 14 8.3888C14 10.451 13.88 12.3298 13.7013 13.5534C13.6809 13.573 13.4626 14.9422 13.224 15.4112C12.7862 16.268 11.931 16.8 11.0159 16.8H10.9368C10.3408 16.779 9.08738 16.247 9.08738 16.2274C6.98022 15.3286 2.82319 12.5328 1.15246 10.675C1.15246 10.675 0.681929 10.1976 0.47735 9.8994C0.158208 9.471 0 8.9404 0 8.4098C0 7.8176 0.178665 7.266 0.516902 6.8166Z" fill="#222F5D"></path>
+      </svg></a><a href="javascript:void(0)">
+      <svg width="21" height="17" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.4314 2.00691C14.4976 1.3372 15.5141 0.780245 16.2865 0.469C16.6247 0.3248 17.4799 0.0196 17.9368 0C18.3746 0 18.7919 0.1008 19.1902 0.3052C19.6866 0.5908 20.0849 1.0402 20.3031 1.5708C20.4435 1.939 20.6618 3.0408 20.6618 3.0604C20.88 4.2658 21 6.2244 21 8.3888C21 10.451 20.88 12.3298 20.7013 13.5534C20.6962 13.5583 20.6785 13.6488 20.6511 13.7888C20.5697 14.2052 20.4026 15.0602 20.224 15.4112C19.7862 16.268 18.931 16.8 18.0159 16.8H17.9368C17.3408 16.779 16.0874 16.247 16.0874 16.2274C15.3779 15.9248 14.4359 15.407 13.4348 14.7825C13.37 15.0339 13.298 15.2658 13.224 15.4112C12.7862 16.268 11.931 16.8 11.0159 16.8H10.9368C10.3408 16.779 9.08738 16.247 9.08738 16.2274C6.98022 15.3286 2.82318 12.5328 1.15246 10.675C1.15246 10.675 0.681929 10.1976 0.47735 9.8994C0.158207 9.471 0 8.9404 0 8.4098C0 7.8176 0.178665 7.266 0.516903 6.8166C0.544413 6.78836 0.59848 6.72795 0.669006 6.64915C0.801279 6.50136 0.991449 6.28888 1.17292 6.1026C2.80409 4.3064 7.05933 1.3664 9.28651 0.469C9.62474 0.3248 10.4799 0.0196 10.9368 0C11.3746 0 11.7919 0.1008 12.1902 0.3052C12.6866 0.5908 13.0849 1.0402 13.3031 1.5708C13.342 1.67277 13.3868 1.83099 13.4314 2.00691Z" fill="#222F5D"></path>
+      </svg></a>
+  </ul>
+</div>
+<div class="filterProduct flex flex-col stone-bk-50 shadow-filter fixed bottom-0 left-0 z-30 w-full overflow-scroll hide p-[40px]  rounded-filter h-[400px]  ">
+  <p class="filterProductTitle font-bold orange-400 text-[22px]">فیلتر</p>
+  <div class="filterProduct--detail flex flex-col gap-y-10 my-[21px]"> <a class="filterProduct--detail--brand flex flex-col" href="javascript:void(0)" x-data="{ tabBrand: false }">
+      <div class="filterProduct--detail--brand--wrapper space-x-6 flex flex-row items-center" @click="tabBrand = !tabBrand"><img class="filterProduct--detail--brand--wrapper--icon relative ml-[15px]" src="./img/house.svg" alt="icon"/>
+        <p class="filterProduct--detail--brand--wrapper--text font-normal slate-800 text-[18px]">برند محصول</p><img class="transition-all duration-700" src="./img/arrow-up.svg" alt="icon" :class="tabBrand ? 'rotate-180 ' : '' "/>
+      </div>
+      <div class="filterProduct--detail--brand--wrapper--detail flex flex-col gap-y-5 mt-[20px]" x-show="tabBrand" @click.outside="tabBrand = false" x-transition.duration.800ms="x-transition.duration.800ms"> 
+        <div class="filterProduct--detail--brand--wrapper--detail--item">
+          <input class="form-checkbox orange-400 rounded-full p-3" type="checkbox" name=""/>
+          <lable>اپل</lable>
+        </div>
+        <div class="filterProduct--detail--brand--wrapper--detail--item">
+          <input class="form-checkbox orange-400 rounded-full p-3" type="checkbox" name=""/>
+          <lable>سامسونگ</lable>
+        </div>
+        <div class="filterProduct--detail--brand--wrapper--detail--item">
+          <input class="form-checkbox orange-400 rounded-full p-3" type="checkbox" name=""/>
+          <lable>شیائومی</lable>
+        </div>
+        <div class="filterProduct--detail--brand--wrapper--detail--item">
+          <input class="form-checkbox orange-400 rounded-full p-3" type="checkbox" name=""/>
+          <lable>هوآوی</lable>
+        </div>
+      </div></a><a class="filterProduct--detail--color flex flex-col" href="javascript:void(0)" x-data="{tabColor :false}">
+      <div class="filterProduct--detail--color--wrapper space-x-6 flex flex-row items-center" @click="tabColor = ! tabColor"><img class="filterProduct--detail--brand--icon relative ml-[15px]" src="./img/color-swatch.svg" alt="icon"/>
+        <p class="filterProduct--detail--brand--text font-normal slate-800 text-[18px]">رنگ محصول</p><img class="transition-all duration-700" src="./img/arrow-up.svg" alt="icon" :class="tabColor ? 'rotate-180': '' "/>
+      </div>
+      <div class="filterProduct--detail--color--wrapper--detail flex flex-col gap-y-5 mt-[20px]" x-show="tabColor" x-transition.duration.800ms="x-transition.duration.800ms" @click.outside="tabColor = false" x-data="{colors:['قرمز','آبی','زرد','سبز','بنفش','صورتی']}">
+        <template x-for="color in colors">
+          <div class="filterProduct--detail--color--wrapper--detail--item">
+            <input class="form-checkbox orange-400 rounded-full p-3" type="checkbox" name=""/>
+            <lable x-text="color"></lable>
+          </div>
+        </template>
+      </div></a><a class="filterProduct--detail--range flex flex-col gap-y-5" x-data="{tabRange: false}">
+      <div class="filterProduct--detail--range--wrapper flex flex-row space-x-6 items-center" @click="tabRange = !tabRange" href="javascript:void(0)"><img class="filterProduct--detail--brand--icon relative ml-[15px]" src="./img/wallet.svg" alt="icon"/>
+        <p class="filterProduct--detail--brand--text font-normal slate-800 text-[18px]">محدوده قیمت محصول</p><img class="transtion transition-700" src="./img/arrow-up.svg" alt="icon" :class="tabRange ? 'rotate-180' : '' "/>
+      </div>
+      <div class="filterProduct--detail--range--detail" x-show="tabRange" @click.outside="tabRange = false" x-transition.duration.800ms="x-transition.duration.800ms">
+        <input class="js-range-slider" type="text" name="my_range"/>
+      </div></a></div>
+  <div class="filterProduct--detail--buttons flex  justify-between items-center mt-[36px] flex-col gap-y-5 md:flex-row  "><a class="btn-orange-active text-[18px]  p-2.5 m-auto w-full md:mx-7" href="javascript:void(0)">تایید</a><a class="btn-orange-outline text-[18px]  p-2.5 w-full md:mx-7" href="javascript:void(0)">لغو فیلتر</a></div><span class="absolute orange-bk-400 w-60 h-2 left-[120px] rounded-bl-[2px] rounded-br-[2px] top-0"></span>
+</div>
+<div class="navbar--mobile fixed bottom-0 left-0 shadow-default stone-bk-50 z-10 w-full md:hidden .rounded-tr-[20px] rounded-tl-[20px]"> 
+  <div class="flex justify-around items-center flex-row py-[17px] " x-data="{active:1 }"><a class="navbar--mobile--item flex" href="javascript:void(0)" @click="active = 1">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class=" transition-all ease-in-out delay-1000" d="M24.72 7.09357L17.04 1.72024C14.9467 0.253576 11.7333 0.333576 9.71999 1.89358L3.03999 7.10691C1.70665 8.14691 0.65332 10.2802 0.65332 11.9602V21.1602C0.65332 24.5602 3.41332 27.3336 6.81332 27.3336H21.1867C24.5867 27.3336 27.3467 24.5736 27.3467 21.1736V12.1336C27.3467 10.3336 26.1867 8.12024 24.72 7.09357ZM15 22.0002C15 22.5469 14.5467 23.0002 14 23.0002C13.4533 23.0002 13 22.5469 13 22.0002V18.0002C13 17.4536 13.4533 17.0002 14 17.0002C14.5467 17.0002 15 17.4536 15 18.0002V22.0002Z" fill="#A5ABBD" :class="active === 1 ? 'fill-slate-800' : '' "></path>
+      </svg>
+      <p class="navbar--mobile--item__text mr-3 slate-800 font-bold text-[18px]  transition-all ease-in-out delay-1000" x-show="active === 1">خانه</p></a><a class="navbar--mobile--item flex" href="javascript:void(0)" @click="active = 2">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="transition-all ease-in-out delay-1000" d="M8.25683 0.833496H5.56516C2.46266 0.833496 0.833496 2.46266 0.833496 5.551V8.24266C0.833496 11.331 2.46266 12.9602 5.551 12.9602H8.24266C11.331 12.9602 12.9602 11.331 12.9602 8.24266V5.551C12.9743 2.46266 11.3452 0.833496 8.25683 0.833496Z" fill="#A5ABBD" :class="active ===2 ? 'fill-slate-800' : '' "></path>
+        <path class="transition-all ease-in-out delay-1000" d="M24.4492 0.833496H21.7575C18.6692 0.833496 17.04 2.46266 17.04 5.551V8.24266C17.04 11.331 18.6692 12.9602 21.7575 12.9602H24.4492C27.5375 12.9602 29.1667 11.331 29.1667 8.24266V5.551C29.1667 2.46266 27.5375 0.833496 24.4492 0.833496Z" fill="#A5ABBD" :class="active ===2 ? 'fill-slate-800' : '' "></path>
+        <path class="transition-all ease-in-out delay-1000" d="M24.4492 17.0259H21.7575C18.6692 17.0259 17.04 18.655 17.04 21.7434V24.435C17.04 27.5234 18.6692 29.1525 21.7575 29.1525H24.4492C27.5375 29.1525 29.1667 27.5234 29.1667 24.435V21.7434C29.1667 18.655 27.5375 17.0259 24.4492 17.0259Z" fill="#A5ABBD" :class="active ===2 ? 'fill-slate-800' : '' "></path>
+        <path class="transition-all ease-in-out delay-1000" d="M8.25683 17.0259H5.56516C2.46266 17.0259 0.833496 18.655 0.833496 21.7434V24.435C0.833496 27.5375 2.46266 29.1667 5.551 29.1667H8.24266C11.331 29.1667 12.9602 27.5375 12.9602 24.4492V21.7575C12.9743 18.655 11.3452 17.0259 8.25683 17.0259Z" fill="#A5ABBD" :class="active ===2 ? 'fill-slate-800' : '' "></path>
+      </svg>
+      <p class="navbar--mobile--item__text mr-3 slate-800 font-bold text-[18px] transition-all ease-in-out delay-1000" x-show="active === 2">دسته بندی</p></a><a class="navbar--mobile--item flex" href="javascript:void(0)" @click="active = 3">
+      <svg width="26" height="30" viewBox="0 0 26 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="transition-all ease-in-out delay-1000" d="M24.2766 10.6934C23.3275 9.64506 21.8966 9.0359 19.9133 8.8234V7.74673C19.9133 5.8059 19.0916 3.9359 17.6466 2.63256C16.1875 1.3009 14.2891 0.677562 12.32 0.861729C8.93413 1.18756 6.08663 4.46006 6.08663 8.00173V8.8234C4.1033 9.0359 2.67247 9.64506 1.7233 10.6934C0.349132 12.2234 0.391632 14.2634 0.547465 15.6801L1.53913 23.5709C1.83663 26.3334 2.9558 29.1667 9.04747 29.1667H16.9525C23.0441 29.1667 24.1633 26.3334 24.4608 23.5851L25.4525 15.6659C25.6083 14.2634 25.6366 12.2234 24.2766 10.6934ZM12.5183 2.8309C13.935 2.7034 15.2808 3.14256 16.3291 4.09173C17.3633 5.02673 17.9441 6.3584 17.9441 7.74673V8.7384H8.0558V8.00173C8.0558 5.48006 10.1383 3.05756 12.5183 2.8309ZM7.9283 16.6292H7.91413C7.13497 16.6292 6.49747 15.9917 6.49747 15.2126C6.49747 14.4334 7.13497 13.7959 7.91413 13.7959C8.70747 13.7959 9.34497 14.4334 9.34497 15.2126C9.34497 15.9917 8.70747 16.6292 7.9283 16.6292ZM17.845 16.6292H17.8308C17.0516 16.6292 16.4141 15.9917 16.4141 15.2126C16.4141 14.4334 17.0516 13.7959 17.8308 13.7959C18.6241 13.7959 19.2616 14.4334 19.2616 15.2126C19.2616 15.9917 18.6241 16.6292 17.845 16.6292Z" fill="#A5ABBD" :class="active ===3 ? 'fill-slate-800' : '' "></path>
+      </svg>
+      <p class="navbar--mobile--item__text mr-3 slate-800 font-bold text-[18px] transition-all ease-in-out delay-1000" x-show="active === 3">سبد خرید</p></a><a class="navbar--mobile--item flex" href="javascript:void(0)" @click="active = 4">
+      <svg width="29" height="25" viewBox="0 0 29 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="transition-all ease-in-out delay-1000" d="M20.8335 0.333496C18.3224 0.333496 16.0779 1.55572 14.6779 3.42239C13.2779 1.55572 11.0335 0.333496 8.52239 0.333496C4.27794 0.333496 0.833496 3.80016 0.833496 8.06683C0.833496 9.71127 1.10016 11.2446 1.54461 12.6446C3.72238 19.5557 10.4779 23.7113 13.8113 24.8446C14.2779 25.0002 15.0557 25.0002 15.5224 24.8446C18.8557 23.7113 25.6113 19.5779 27.7891 12.6446C28.2557 11.2224 28.5002 9.71127 28.5002 8.06683C28.5224 3.80016 25.0779 0.333496 20.8335 0.333496Z" fill="#A5ABBD" :class="active ===4 ? 'fill-slate-800' : '' "></path>
+      </svg>
+      <p class="navbar--mobile--item__text mr-3 slate-800 font-bold text-[18px]" x-show="active === 4">علاقمندی ها</p></a></div>
+</div>

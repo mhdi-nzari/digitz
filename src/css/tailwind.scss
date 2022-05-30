@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "./ion.rangeSlider.min";
+
+$shadow--default: 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+html {
+  font-size: 62.5%;
+}
+
+@layer components {
+  .precent-default {
+    font-size: 62.5%;
+  }
+
+  // orange color
+  .orange-700 {
+    color: #de3618;
+  }
+
+  .orange-600 {
+    color: #fc5858;
+  }
+
+  .orange-500 {
+    color: #f25e57;
+  }
+
+  .orange-400 {
+    color: #ff755c;
+  }
+
+  .orange-300 {
+    color: #ff9f8e;
+  }
+
+  .orange-200 {
+    color: #ffcbcb;
+  }
+
+  // slate color
+  .slate-900 {
+    color: #161d25;
+  }
+
+  .slate-800 {
+    color: #222f5d;
+  }
+
+  .slate-700 {
+    color: rgba(34, 47, 93, 0.63);
+  }
+
+  .slate-200 {
+    color: #e2e2e2;
+  }
+
+  // stone 100
+  .stone-100 {
+    color: #f4f4f4;
+  }
+
+  .stone-50 {
+    color: #fdfdfd;
+  }
+
+  // gray color
+  .gray-300 {
+    color: #afafaf;
+  }
+
+  .gray-200 {
+    color: #ebebeb;
+  }
+
+  // indigo color
+  .indigo-600 {
+    color: #8750fb;
+  }
+
+  // Yellow color
+  .Yellow-400 {
+    color: #ffde74;
+  }
+
+  // Gray color
+  .Gray-300 {
+    color: rgba(175, 175, 175, 0.29);
+  }
+
+  .orange-bk-700 {
+    background-color: #de3618;
+  }
+
+  .orange-bk-600 {
+    background-color: #fc5858;
+  }
+
+  .orange-bk-500 {
+    background-color: #f25e57;
+  }
+
+  .orange-bk-400 {
+    background-color: #ff755c;
+  }
+
+  .orange-bk-300 {
+    background-color: #ff9f8e;
+  }
+
+  .orange-bk-200 {
+    background-color: #ffcbcb;
+  }
+
+  // slate background-color
+  .slate-bk-900 {
+    background-color: #161d25;
+  }
+
+  .slate-bk-800 {
+    background-color: #222f5d;
+  }
+
+  .slate-bk-700 {
+    background-color: rgba(34, 47, 93, 0.63);
+  }
+
+  .slate-bk-200 {
+    background-color: #e2e2e2;
+  }
+
+  // stone 100
+  .stone-bk-100 {
+    background-color: #f4f4f4;
+  }
+
+  .stone-bk-50 {
+    background-color: #fdfdfd;
+  }
+
+  // gray background-color
+  .gray-bk-300 {
+    background-color: #afafaf;
+  }
+
+  .gray-bk-200 {
+    background-color: #ebebeb;
+  }
+
+  // indigo background-color
+  .indigo-bk-600 {
+    background-color: #8750fb;
+  }
+
+  // Yellow background-color
+  .yellow-bk-400 {
+    background-color: #ffde74;
+  }
+
+  // Gray background-color
+  .gray-bk-300 {
+    background-color: rgba(175, 175, 175, 0.29);
+  }
+
+  .shadow-default {
+    box-shadow: $shadow--default;
+  }
+  .shadow-filter {
+    box-shadow: 0 -4px 8px 0 rgba(0, 0, 0, 0.08);
+  }
+
+  .rounded-default {
+    border-radius: 5px;
+  }
+  .rounded-item {
+    border-radius: 10px;
+  }
+
+  .product--wrapper--item {
+    padding: 6rem 5rem 26rem 6rem;
+    background: #fdfdfd;
+    box-shadow: 0 3.1px 6.2px 0 rgba(0, 0, 0, 0.08);
+  }
+}
+
+@layer components {
+  .btn-orange-active {
+    @apply rounded-default text-center px-[64px] py-[12px] text-white orange-bk-400 text-[24px];
+  }
+  .btn-orange-outline {
+    @apply rounded-default orange-bk-200 text-center px-[64px] py-[12px] orange-400 ring-2 ring-orange-600  font-medium text-[24px];
+  }
+
+  .addTocart {
+    @apply rounded-default orange-bk-400 text-white font-bold text-20 items-center  m-auto px-10 py-4;
+  }
+
+  .product--item--caption--item {
+    @apply rounded-item shadow-default py-10 bg-white flex flex-col gap-y-5  px-[70px];
+  }
+
+  .selector span.active {
+    @apply bg-white py-3   rounded-full h-full slate-800 font-bold  transition-all;
+  }
+}
+
+@import "./font";
+@import "./base";
+@import "./custom";

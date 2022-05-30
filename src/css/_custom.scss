@@ -1,0 +1,166 @@
+body {
+  font-family: iranyekan;
+  background-color: rgba(244, 244, 244, 1);
+}
+
+main {
+  margin-bottom: 100px;
+}
+section {
+  padding: 0px 1.25rem;
+}
+#header--main {
+  padding: 40px 26px;
+}
+
+.product--filter {
+  &--sort {
+    padding: 1.8rem 0.9rem;
+  }
+}
+
+.irs {
+  margin-top: 20px;
+  font-family: "iranyekan";
+  direction: ltr;
+}
+
+.irs-single {
+  font-size: 13px !important;
+  background: rgb(244, 244, 244) !important;
+  color: rgb(242, 94, 87) !important;
+  border: 1px solid rgb(242, 94, 87) !important;
+  font-weight: 400 !important;
+  top: -8px;
+}
+.irs--flat .irs-bar {
+  background-color: #ff755c;
+}
+
+.rounded-filter {
+  @include border-radius(30px 30px 0px 0px);
+}
+.navbar--mobile--active {
+  @include flex-r-center;
+}
+
+.filterProduct {
+  &--detail {
+    &--brand,
+    &--color {
+      &--wrapper {
+        &--detail {
+          &--item {
+            lable {
+              @apply text-[16px] font-normal slate-800 mr-[12px];
+            }
+          }
+        }
+      }
+    }
+  }
+  transition: transform 0.5s ease-in-out;
+  &.hide {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  &.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product--item--caption--item {
+  li {
+    list-style: disc !important;
+  }
+
+  li::marker {
+    color: #ff755c;
+    font-size: 25px;
+  }
+}
+
+.product--item--caption--item #comment {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  text-align: justify;
+}
+
+.wrapperMenu {
+  a {
+    margin: 0px 10px;
+  }
+
+  .wrapperMenu__Item.active {
+    font-weight: 800;
+  }
+}
+
+#searchBoxInput {
+  border: none;
+
+  &::placeholder {
+    font-size: 13px;
+    font-weight: 400;
+    color: #222f5d;
+  }
+  outline: none;
+  font-size: 18px;
+  color: #222f5d;
+  padding: 11px 80px;
+}
+
+.product--filter--sort__text {
+  li {
+    margin: 0px 15px;
+    color: #afafaf;
+    font-size: 14px;
+    font-weight: normal;
+  }
+}
+
+.categorySidebar {
+  &__Item {
+    color: #afafaf;
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+
+#itemSidebar {
+  font-weight: 400;
+  color: #222f5d;
+}
+
+.form-checkbox {
+  border-color: #ff755c;
+
+  &:focus {
+    --tw-ring-color: #ff755c;
+  }
+}
+
+#footer {
+  & > * {
+    flex-grow: 1;
+    width: 33%;
+    height: 100%;
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+  }
+}
+
+aside {
+  @media screen and (max-width: 1440px) {
+    display: none;
+  }
+}
+
+.product--wrapper--items {
+  border-bottom: 2px dashed;
+}

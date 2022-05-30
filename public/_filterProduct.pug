@@ -1,0 +1,48 @@
+.filterProduct.flex.flex-col.stone-bk-50.shadow-filter.fixed.bottom-0.left-0.z-30.w-full.overflow-scroll.hide(class="p-[40px]  rounded-filter h-[400px]  ")
+	p.filterProductTitle.font-bold.orange-400(class='text-[22px]') فیلتر
+	.filterProduct--detail.flex.flex-col.gap-y-10(class='my-[21px]') 
+		a(href="javascript:void(0)" x-data="{ tabBrand: false }").filterProduct--detail--brand.flex.flex-col
+			.filterProduct--detail--brand--wrapper.space-x-6.flex.flex-row.items-center(@click="tabBrand = !tabBrand")
+				img.filterProduct--detail--brand--wrapper--icon.relative(src="./img/house.svg" alt="icon" class='ml-[15px]')
+				p.filterProduct--detail--brand--wrapper--text.font-normal.slate-800(class='text-[18px]') برند محصول
+				img.transition-all.duration-700(src="./img/arrow-up.svg" alt="icon" :class="tabBrand ? 'rotate-180 ' : '' " )
+			.filterProduct--detail--brand--wrapper--detail.flex.flex-col.gap-y-5(class='mt-[20px]' x-show="tabBrand" @click.outside="tabBrand = false" x-transition.duration.800ms) 
+				.filterProduct--detail--brand--wrapper--detail--item
+					input.form-checkbox.orange-400.rounded-full.p-3(type="checkbox" name="")
+					lable اپل
+				.filterProduct--detail--brand--wrapper--detail--item
+					input.form-checkbox.orange-400.rounded-full.p-3(type="checkbox" name="")
+					lable سامسونگ
+				.filterProduct--detail--brand--wrapper--detail--item
+					input.form-checkbox.orange-400.rounded-full.p-3(type="checkbox" name="")
+					lable شیائومی
+				.filterProduct--detail--brand--wrapper--detail--item
+					input.form-checkbox.orange-400.rounded-full.p-3(type="checkbox" name="")
+					lable هوآوی
+		a(href="javascript:void(0)" x-data="{tabColor :false}").filterProduct--detail--color.flex.flex-col
+			.filterProduct--detail--color--wrapper.space-x-6.flex.flex-row.items-center(@click="tabColor = ! tabColor")
+				img.filterProduct--detail--brand--icon.relative(src="./img/color-swatch.svg" alt="icon" class='ml-[15px]')
+				p.filterProduct--detail--brand--text.font-normal.slate-800(class='text-[18px]') رنگ محصول
+				img.transition-all.duration-700(src="./img/arrow-up.svg" alt="icon" :class="tabColor ? 'rotate-180': '' " )
+
+			.filterProduct--detail--color--wrapper--detail.flex.flex-col.gap-y-5(class='mt-[20px]' x-show="tabColor" x-transition.duration.800ms @click.outside="tabColor = false" 
+			x-data="{colors:['قرمز','آبی','زرد','سبز','بنفش','صورتی']}")
+				template(x-for="color in colors")
+					.filterProduct--detail--color--wrapper--detail--item
+						input.form-checkbox.orange-400.rounded-full.p-3(type="checkbox" name="")
+						lable(x-text="color")
+
+		a.filterProduct--detail--range.flex.flex-col.gap-y-5(class='' x-data="{tabRange: false}")
+			.filterProduct--detail--range--wrapper.flex.flex-row.space-x-6.items-center(@click="tabRange = !tabRange" href="javascript:void(0)")
+				img.filterProduct--detail--brand--icon.relative(src="./img/wallet.svg" alt="icon" class='ml-[15px]')
+				p.filterProduct--detail--brand--text.font-normal.slate-800(class='text-[18px]') محدوده قیمت محصول
+				img.transtion.transition-700(src="./img/arrow-up.svg" alt="icon" :class="tabRange ? 'rotate-180' : '' ")
+
+			.filterProduct--detail--range--detail(x-show="tabRange" @click.outside ="tabRange = false" x-transition.duration.800ms)
+				input.js-range-slider(type="text" name="my_range")
+	.filterProduct--detail--buttons(class='flex  justify-between items-center mt-[36px] flex-col gap-y-5 md:flex-row  ' )
+		a.btn-orange-active(href="javascript:void(0)" class="text-[18px]  p-2.5 m-auto w-full md:mx-7") تایید
+		a.btn-orange-outline(href="javascript:void(0)" class="text-[18px]  p-2.5 w-full md:mx-7") لغو فیلتر
+
+
+	span.absolute.orange-bk-400(class="w-60 h-2 left-[120px] rounded-bl-[2px] rounded-br-[2px] top-0")

@@ -1,0 +1,47 @@
+
+<ul class="categorySidebar flex flex-col gap-y-10 orange-400 font-bold text-18">دسته بندی<a class="flex flex-row items-center" href="javascript:void(0)"><img class="ml-5" src="./img/icon-phone.png" alt=""/>
+    <li class="categorySidebar__Item">تلفن همراه</li></a><a class="flex flex-row items-center" href="javascript:void(0)"><img class="ml-5" src="./img/icon-computer.png" alt=""/>
+    <li class="categorySidebar__Item">لب تاپ </li></a><a class="flex flex-row items-center" href="javascript:void(0)"><img class="ml-5" src="./img/icon-watch.png" alt="watch"/>
+    <li class="categorySidebar__Item">ساعت هوشمند</li></a></ul>
+<div class="filterProducts flex flex-col stone-bk-50 mt-10">
+  <p class="filterProductTitle font-bold orange-400 text-[18px]">فیلتر</p>
+  <div class="filterProduct--detail flex flex-col gap-y-10 my-[21px]"> <a class="filterProduct--detail--brand flex flex-col" href="javascript:void(0)" x-data="{ tabBrand: false }">
+      <div class="filterProduct--detail--brand--wrapper space-x-6 flex flex-row items-center" @click="tabBrand = !tabBrand"><img class="filterProduct--detail--brand--wrapper--icon relative ml-[15px]" src="./img/house.png" alt="icon"/>
+        <p class="filterProduct--detail--brand--wrapper--text font-normal slate-800 text-[15px]" id="itemSidebar">برند محصول</p><img class="transition-all duration-700" src="./img/arrow-up.svg" alt="icon" :class="tabBrand ? 'rotate-180 ' : '' "/>
+      </div>
+      <div class="filterProduct--detail--brand--wrapper--detail flex flex-col gap-y-5 mt-[20px]" x-show="tabBrand" @click.outside="tabBrand = false" x-transition.duration.800ms="x-transition.duration.800ms"> 
+        <div class="filterProduct--detail--brand--wrapper--detail--item">
+          <input class="form-checkbox orange-400 rounded-full p-3" type="checkbox" name=""/>
+          <lable>اپل</lable>
+        </div>
+        <div class="filterProduct--detail--brand--wrapper--detail--item">
+          <input class="form-checkbox orange-400 rounded-full p-3" type="checkbox" name=""/>
+          <lable>سامسونگ</lable>
+        </div>
+        <div class="filterProduct--detail--brand--wrapper--detail--item">
+          <input class="form-checkbox orange-400 rounded-full p-3" type="checkbox" name=""/>
+          <lable>شیائومی</lable>
+        </div>
+        <div class="filterProduct--detail--brand--wrapper--detail--item">
+          <input class="form-checkbox orange-400 rounded-full p-3" type="checkbox" name=""/>
+          <lable>هوآوی</lable>
+        </div>
+      </div></a><a class="filterProduct--detail--color flex flex-col" href="javascript:void(0)" x-data="{tabColor :false}">
+      <div class="filterProduct--detail--color--wrapper space-x-6 flex flex-row items-center" @click="tabColor = ! tabColor"><img class="filterProduct--detail--brand--icon relative ml-[15px]" src="./img/color-swatch.png" alt="icon"/>
+        <p class="filterProduct--detail--brand--text font-normal slate-800 text-[15px]" id="itemSidebar">رنگ محصول</p><img class="transition-all duration-700" src="./img/arrow-up.svg" alt="icon" :class="tabColor ? 'rotate-180': '' "/>
+      </div>
+      <div class="filterProduct--detail--color--wrapper--detail flex flex-col gap-y-5 mt-[20px]" x-show="tabColor" x-transition.duration.800ms="x-transition.duration.800ms" @click.outside="tabColor = false" x-data="{colors:['قرمز','آبی','زرد','سبز','بنفش','صورتی']}">
+        <template x-for="color in colors">
+          <div class="filterProduct--detail--color--wrapper--detail--item">
+            <input class="form-checkbox rounded-full p-3 orange-400" type="checkbox" name=""/>
+            <lable class="slate-800 text-[15px] font-normal" x-text="color"></lable>
+          </div>
+        </template>
+      </div></a><a class="filterProduct--detail--range flex flex-col gap-y-5" href="javascript:void(0)" x-data="{tabRange: false}">
+      <div class="filterProduct--detail--range--wrapper flex flex-row space-x-6 items-center" @click="tabRange = !tabRange" href="javascript:void(0)"><img class="filterProduct--detail--brand--icon relative ml-[15px]" src="./img/wallet.png" alt="icon"/>
+        <p class="filterProduct--detail--brand--text font-normal slate-800 text-[15px]" id="itemSidebar">محدوده قیمت </p><img class="transition-all duration-700" src="./img/arrow-up.svg" alt="icon" :class="tabRange ? 'rotate-180' : '' "/>
+      </div>
+      <div class="filterProduct--detail--range--detail" x-show="tabRange" @click.outside="tabRange = false" x-transition.duration.800ms="x-transition.duration.800ms">
+        <input class="js-range-slider" type="text" name="my_range"/>
+      </div></a></div>
+</div>

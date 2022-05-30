@@ -1,0 +1,30 @@
+header#header--main.flex.items-center.bg-white.w-full.h-40.px-5.shadow-default.sticky.top-0.z-10(class="hidden lg:flex")
+	a.logo--img(href="javascript.void()" class="w-[20%] md:w-1/6") 
+
+		img.w-fit(src="./img/logo.png" alt="logo" class="md:block lg:hidden")
+		img.w-fit(src="./img/logoDesc.png" alt="logo" class="hidden md:hidden lg:block" )
+	p.category.slate-800.font-bold.text-title(class="md:block text-center lg:hidden w-[60%] md:w-[60%]" ) ساعت هوشمند
+	ul.wrapperMenu.flex.flex-row.slate-800.text-15(class="w-5/12 xs:hidden hidden md:hidden  lg:flex") 
+		a(href="javascript:void(0)") 
+			li.wrapperMenu__Item.active خانه
+		a(href="javascript:void(0)") 
+			li.wrapperMenu__Item تلفن همراه
+		a(href="javascript:void(0)") 
+			li.wrapperMenu__Item لپ تاب هوشمند
+		a(href="javascript:void(0)") 
+			li.wrapperMenu__Item لپ تاب هوشمند
+		a(href="javascript:void(0)") 
+			li.wrapperMenu__Item ساعت  هوشمند
+	a.lnk--search.p-2.rounded-default.bg-white.shadow-default(href="javascript:void(0)" class="md:block lg:hidden") 
+		svg(   width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg")
+			path(d="M9.58317 17.4998C13.9554 17.4998 17.4998 13.9554 17.4998 9.58317C17.4998 5.21092 13.9554 1.6665 9.58317 1.6665C5.21092 1.6665 1.6665 5.21092 1.6665 9.58317C1.6665 13.9554 5.21092 17.4998 9.58317 17.4998Z" stroke="#222F5D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round")
+			path(d="M18.3332 18.3332L16.6665 16.6665" stroke="#222F5D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round")
+	.searchBox.relative.overflow-hidden(class="w-7/12 xs:hidden lg:flex")
+		svg.w-10.h-10.absolute.cursor-pointer(class="top-[20%] right-[2%]" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg")
+			path(d="M13.4167 24.5002C19.5379 24.5002 24.5 19.538 24.5 13.4168C24.5 7.29567 19.5379 2.3335 13.4167 2.3335C7.29555 2.3335 2.33337 7.29567 2.33337 13.4168C2.33337 19.538 7.29555 24.5002 13.4167 24.5002Z" stroke="#222F5D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round")
+			path(d="M25.6667 25.6668L23.3334 23.3335" stroke="#222F5D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round")
+
+		input.form-input#searchBoxInput.stone-bk-100.rounded-default( type="text" name="searchBox" class="w-full" placeholder="جستجوی نام محصول ، نام برند ، قیمت ...")
+
+
+

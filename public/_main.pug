@@ -1,0 +1,90 @@
+section.product--filter
+	.product--filter.flex.justify-around.gap-x-7(class="flex-col md:flex-row mt-10  gap-y-4 ")
+		.product--filter--sort.bg-white.rounded-default.shadow-default(class=" w-full md:w-1/2 lg:hidden")
+			a.flex.flex-row.items-center(href="javascript:void(0)" xs:justify-around sm:.justify-start)
+				.product--filter--sort--img.flex.flex-row.ml-2 
+					img.w-fit(src="./img/sort.png" alt="")
+					img.w-fit(src="./img/arrow-down.png" alt="")
+				p.product--filter--sort__text.text-one.font-medium.slate-800.text-one محبوب ترین محصول
+		.product--filter--sort.bg-white.rounded-default.shadow-default#filter-btn(class=" w-full md:w-1/2  lg:hidden")
+			a.flex.flex-row.items-center(href="javascript:void(0)")  
+				.product--filter--sort--img.flex.flex-row
+					svg.ml-2(width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg")
+						path(d="M5.3999 2.1001H18.5999C19.6999 2.1001 20.5999 3.0001 20.5999 4.1001V6.3001C20.5999 7.1001 20.0999 8.1001 19.5999 8.6001L15.2999 12.4001C14.6999 12.9001 14.2999 13.9001 14.2999 14.7001V19.0001C14.2999 19.6001 13.8999 20.4001 13.3999 20.7001L11.9999 21.6001C10.6999 22.4001 8.8999 21.5001 8.8999 19.9001V14.6001C8.8999 13.9001 8.4999 13.0001 8.0999 12.5001L4.2999 8.5001C3.7999 8.0001 3.3999 7.1001 3.3999 6.5001V4.2001C3.3999 3.0001 4.2999 2.1001 5.3999 2.1001Z" stroke="#AFAFAF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round")
+						path(opacity="0.4" d="M10.93 2.1001L6 10.0001" stroke="#AFAFAF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round")
+					.product--filter--sort__text.flex.flex-row(x-data="{open:false}")
+						p.text-one.font-medium.slate-800.ml-5(x-on:click = "open = ! open") فیلتر :
+						p.slate-800.text-one.font-medium.mr-1 برند اپل
+
+#grid.grid.grid-cols-12(class=" md:grid-rows-[55px_minmax(500px,1fr) md:gap-8")
+	aside#sidbar.overflow-auto.sticky.z-9.h-fit.col-span-2.row-span-2.p-8.mx-6.bg-white.rounded-default.shadow-default.top-48(class="hidden lg:block max-h-[calc(100vh_-_140px)]" )
+		include ./_categorySidebar
+	section.col-span-10.hidden.bg-white.rounded-default.shadow-default.p-8.mx-6(class="lg:block lg:col-span-10")
+		a.flex.flex-row.items-center(href="javascript:void(0)" class="xs:justify-around sm:justify-start")
+			.product--filter--sort--img.flex.flex-row.ml-2 
+				img.w-fit(src="./img/sort.png" alt="")
+				img.w-fit(src="./img/arrow-down.png" alt="")
+			ul.flex.flex-row.product--filter--sort__text.slate-800.text-one(x-data="{sort:1 , activeClass:'slate-800 font-bold '}")
+				li.relative(@click = "sort = 1 " )
+					span(:class="sort === 1 ? activeClass : '' ") محبوب ترین محصول
+					span.w-3.h-3.bg-orange-600.rounded-full.left-0.-top-3.absolute(x-show="sort === 1")
+				li.relative(@click = "sort = 2 ")
+					span(:class="sort === 2 ? activeClass : '' ") پربازدیدترین محصول
+					span.w-3.h-3.bg-orange-600.rounded-full.left-0.-top-3.absolute(x-show="sort === 2")
+
+				li.relative(@click = "sort = 3 " )
+					span(:class="sort === 3 ? activeClass : '' ") گرانترین محصول
+					span.w-3.h-3.bg-orange-600.rounded-full.left-0.-top-3.absolute(x-show="sort === 3")
+
+				li.relative(@click = "sort = 4 " )
+					span(:class="sort === 4 ? activeClass : '' ") ارزان ترین محصول
+					span.w-3.h-3.bg-orange-600.rounded-full.left-0.-top-3.absolute(x-show="sort === 4")
+
+
+
+
+	section.prdouct.product--wrapper.col-span-12(class="grid grid-cols-1  sm:grid-cols-2 md:col-span-12 md:grid-cols-4   lg:col-span-10 lg:grid-cols-5 mt-[20px]     gap-y-9 gap-x-3  ")
+
+		each val in ['./img/5.png' , './img/4.png' , './img/3.png' , './img/2.png', './img/1.png','./img/5.png' , './img/4.png' , './img/3.png' , './img/2.png', './img/1.png','./img/5.png' , './img/4.png' , './img/3.png' , './img/2.png', './img/1.png']
+			figure.product--wrapper--item.rounded-item.px-4.py-4.w-full
+				a.inline-block.w-full.rounded-item.relative(href="./singlePage.html" class=" p-2" ).product--wrapper-link.slate-bk-200
+					img.m-auto(src=val, alt="" class="h-60")
+					img(src="./img/Love.png" alt="" class="p-1.5").w-12.h-12.gray-bk-300.heart.absolute.top-5.right-5.rounded-full 
+
+
+				figcaption.product--wrapper--caption.mt-6(class="") 
+					.product--wrapper--caption--brand.flex.flex-row.items-center.justify-between 
+						p(class="text-[15px]").product--wrapper--caption--brand__text.font-normal.gray-300 تلفن همراه
+						ul.product--wrapper--caption--color.flex.flex-row.ml-3(x-data="{color:'red'}")
+							li(class="-ml-3.5" :class="color === 'white' ? 'ring ring-gray-500 ring-offset-2' : ''" @click="color='white'").product--wrapper--caption--color__item.w-8.h-8.rounded-full.bg-white.shadow-default.cursor-pointer.flex.items-center
+								svg.h-6.w-full(xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" class="stroke-gray-500" x-show="color === 'white'")
+									path(stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" )
+							li(class="-ml-3.5" :class="color === 'orange' ? 'ring ring-red-400 ring-offset-2' : ''" @click="color='orange'").product--wrapper--caption--color__item.w-8.h-8.rounded-full.orange-bk-400.shadow-default.cursor-pointer.flex.items-center
+								svg.h-6.w-full(xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" class="stroke-white" x-show="color === 'orange'")
+									path(stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" )
+							li(class="-ml-3.5" :class="color === 'yellow' ? 'ring ring-yellow-400 ring-offset-2' : ''" @click="color='yellow'").product--wrapper--caption--color__item.w-8.h-8.rounded-full.yellow-bk-400.shadow-default.cursor-pointer.flex.items-center
+								svg.h-6.w-full(xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" class="stroke-white" x-show="color === 'yellow'")
+									path(stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" )
+							li(class="-ml-3.5" :class="color === 'indigo' ? 'ring ring-indigo-600 ring-offset-2' : ''" @click="color= 'indigo'").product--wrapper--caption--color__item.w-8.h-8.rounded-full.indigo-bk-600.shadow-default.cursor-pointer.flex.items-center
+								svg.h-6.w-full(xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" class="stroke-white" x-show="color === 'indigo'")
+									path(stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" )
+							li(class="-ml-3.5" @click="color = 'pink'" :class="color === 'pink' ? 'ring ring-red-300 ring-offset-2' : '' ").product--wrapper--caption--color__item.w-8.h-8.rounded-full.orange-bk-300.shadow-default.cursor-pointer.flex.items-center
+								svg.h-6.w-full(class="stroke-white" x-show="color === 'pink'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3")
+									path(stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7")
+					a(href="./cart.html").product--wrapper--caption--detail 
+						p.product--wrapper--caption--detail__title.font-medium.slate-900.text-one.mt-5  ساعت هوشمند اپل سری 6	
+						.product--wrapper--caption--detail__price.w-full.my-5.text-left 	
+							span.product--wrapper--caption--detail__price_one.orange-700.font-medium(class="text-[17px]") 48،250،000
+							span.product--wrapper--caption--detail__price_text.orange-700.font-medium.mr-1(class="text-[14px]")  تومان
+
+					.wrapper-line.w-64.h-1.bg-gray-300.my-4.m-auto.rounded-md
+
+					a(href="./singlePage.html").mt-1.orange-400.font-bold.text-one.text-center.block مشاهده و سفارش 
+	include ./_pagination
+
+
+
+include ./_filterProduct
+
+include ./_navBarMobile
+

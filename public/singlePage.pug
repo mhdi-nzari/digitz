@@ -1,0 +1,179 @@
+extends ./_layout
+
+block headstyle
+
+block header
+	include ./_headerWithOutLogo
+	include ./_headerProduct
+	// The middle part of the website
+block content
+	ul.pagination.flex.flex-row.items-center.gap-x-4.px-11.my-12(class="sm:flex lg:hidden")
+		li.pagination__item.text-one.font-regular.orange-400 تلفن همراه
+		img(src="./img/Arrow---Left-2.svg" class="stroke-slate-800" alt="Arrow---Left-2")
+		li.pagination__item.text-one.font-regular.orange-400 برند تلفن همراه
+		img(src="./img/Arrow---Left-2.svg" class="stroke-slate-800" alt="Arrow---Left-2")
+		li.pagination__item.text-one.slate-800.font-light آیفون 13
+
+
+	#grid.grid.grid-cols-12.mt-20(class=" md:grid-rows-[55px_minmax(500px,1fr) md:gap-8")
+		aside#sidbar.overflow-auto.sticky.z-9.h-fit.col-span-2.row-span-2.hidden.p-8.mx-6.bg-white.shadow-default.top-48(class="xs:hidden lg:block max-h-[calc(100vh_-_140px)] rounded-[18px]" )
+			ul.categorySidebar.flex.flex-col.gap-y-10.orange-400.font-bold.text-18 دسته بندی
+				a(href="javascript:void(0)").flex.flex-row.items-center
+					img.ml-5(src="./img/icon-phone.png" alt="") 
+					li.categorySidebar__Item تلفن همراه
+				a(href="javascript:void(0)").flex.flex-row.items-center
+					img.ml-5(src="./img/icon-computer.png" alt="") 
+					li.categorySidebar__Item لب تاپ 
+				a(href="javascript:void(0)").flex.flex-row.items-center
+					img.ml-5(src="./img/icon-watch.png" alt="watch") 
+					li.categorySidebar__Item ساعت هوشمند
+			ul.categorySidebar.flex.flex-col.gap-y-10.orange-400.font-bold.text-18.mt-5 دسترسی سریع
+				a(href="javascript:void(0)").flex.flex-row.items-center
+					li.categorySidebar__Item دسترسی سریع
+				a(href="javascript:void(0)").flex.flex-row.items-center 
+					li.categorySidebar__Item طراحی
+				a(href="javascript:void(0)").flex.flex-row.items-center
+					li.categorySidebar__Item باتری
+
+		section.col-span-10.hidden.bg-white.rounded-default.shadow-default.mx-6(class="lg:block lg:col-span-10")
+			ul.pagination.flex.flex-row.items-center.gap-x-2.px-11.my-7(class="")
+				li.pagination__item.text-one.font-regular.orange-400 تلفن همراه
+				img(src="./img/Arrow---Left-2.svg" class="stroke-slate-800" alt="Arrow---Left-2")
+				li.pagination__item.text-one.font-regular.orange-400 برند تلفن همراه
+				img(src="./img/Arrow---Left-2.svg" class="stroke-slate-800" alt="Arrow---Left-2")
+				li.pagination__item.text-one.slate-800.font-light آیفون 13
+
+
+		section.prdouct.product--wrapper.col-span-12.grid-cols-1.bg-white(class="grid  md:col-span-12 lg:col-span-10 mt-[20px] gap-y-9 gap-x-3 bg-transparent lg:bg-white  lg:shadow-default rounded-default  xs:mx-auto lg:mx-6")
+			figure.product--item.mt-10(class="grid grid-cols-none lg:grid-cols-[75%_minmax(0%,1fr)] px-9 lg:px-11")
+				.sectionOne.flex(class="flex-col lg:flex-row gap-y-10 lg:gap-y-0")
+					a.product--item__link.mx-auto(href="javascript:void(0)" class="xs:my-11 lg:m-0")
+						img.product--item__link__img.w-140(src="./img/Product_Image.png" alt="product-item")
+					.sectionOne--two.flex.flex-col
+						a.product--item__link(href="javascript:void(0)" class="mt-15 text-center lg:text-right lg:mt-0")
+							h3.product--item__linktitle.slate-800(class="text-[21px] lg:text-[24px] ") گوشی آیفون 13 128 گیگابایت
+							span.product--item__discription.slate-700.text-18.my-11.font-light Apple Iphone 13 128 GB
+						.w-full.bg-slate-200.rounded-full(class="h-0.5 my-5 lg:mb-24 ")
+
+						.color-pallet.flex.flex-row.px-14.w-full(class="justify-evenly lg:justify-start px-0 my-11 lg:my-0")
+							span.color-pallet__text.slate-800.text-18.font-normal  انتخاب رنگ
+							ul.product--wrapper--caption--brand.flex.flex-row.items-center.justify-between(x-data="{color:'red'}")
+
+								li(class="-ml-3.5" :class="color === 'white' ? 'ring ring-gray-500 ring-offset-2' : ''" @click="color='white'").product--wrapper--caption--color__item.w-11.h-11.rounded-full.bg-white.shadow-default.cursor-pointer.flex.items-center
+									svg.h-6.w-full(xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" class="stroke-gray-500" x-show="color === 'white'")
+										path(stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" )
+								li(class="-ml-3.5" :class="color === 'orange' ? 'ring ring-red-400 ring-offset-2' : ''" @click="color='orange'").product--wrapper--caption--color__item.w-11.h-11.rounded-full.orange-bk-400.shadow-default.cursor-pointer.flex.items-center
+									svg.h-6.w-full(xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" class="stroke-white" x-show="color === 'orange'")
+										path(stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" )
+								li(class="-ml-3.5" :class="color === 'yellow' ? 'ring ring-yellow-400 ring-offset-2' : ''" @click="color='yellow'").product--wrapper--caption--color__item.w-11.h-11.rounded-full.yellow-bk-400.shadow-default.cursor-pointer.flex.items-center
+									svg.h-6.w-full(xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" class="stroke-white" x-show="color === 'yellow'")
+										path(stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" )
+								li(class="-ml-3.5" :class="color === 'indigo' ? 'ring ring-indigo-600 ring-offset-2' : ''" @click="color= 'indigo'").product--wrapper--caption--color__item.w-11.h-11.rounded-full.indigo-bk-600.shadow-default.cursor-pointer.flex.items-center
+									svg.h-6.w-full(xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" class="stroke-white" x-show="color === 'indigo'")
+										path(stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" )
+								li(class="-ml-3.5" @click="color = 'pink'" :class="color === 'pink' ? 'ring ring-red-300 ring-offset-2' : '' ").product--wrapper--caption--color__item.w-11.h-11.rounded-full.orange-bk-300.shadow-default.cursor-pointer.flex.items-center
+									svg.h-6.w-full(class="stroke-white" x-show="color === 'pink'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3")
+										path(stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7")
+						figcaption.product--item--caption.flex.flex-col.gap-y-6.w-full(class="flex lg:hidden ")
+							.product--item--detail.flex-row.w-full.flex-wrap.my-9.justify-center.gap-y-9
+								.product--item--detail--item.flex.w-full(class="xs:flex-row lg:flex-col gap-y-7 justify-center lg:justify-end")
+									.product--item--detail--item--wrapper.flex.flex-row.text-16.slate-800.items-center(class="xs:flex-[1_1_50%] ml-7 lg:w-fit  lg:ml-0")
+										.product--item--detail--item--wrapper--head.flex.flex-row
+											img.ml-2(src="./img/shop.svg" alt="")
+											span فروشنده :	
+										p.product--item--detail--item--wrapper-body.text-16.slate-18.font-light.mr-8(class="text-[14px]") دیجی تایز
+									.product--item--detail--item--wrapper.flex.flex-row.text-16.slate-800.items-center(class="xs:flex-[1_1_50%] xs:ml-7 justify-center lg:w-fit lg:justify-start ") 
+										.product--item--detail--item--wrapper--head.flex.flex-row(class="")
+											img.ml-2(src="./img/shop.svg" alt="")
+											span گارانتی :	
+										p.product--item--detail--item--wrapper-body.slate-18.font-light.mr-8(class="text-[14px]")  18 ماه زرین خدمت
+								.product--item--detail--item--wrapper.flex.flex-row.slate-800.items-center(class="fle xs:ml-7 justify-center  xs:flex-[1_1_100%] lg:justify-start") 
+							.product--item--detail--item--wrapper--head.flex.flex-row.text-16.slate-800(class="justify-center lg:justify-end")
+								img.ml-2(src="./img/shop.svg" alt="")
+								span  ارسال توسط :	
+								p.product--item--detail--item--wrapper-body.slate-18.font-light.mr-8(class="text-[14px]") انبار تهران
+							ul.product--item--caption--item.rounded-item.shadow-default.py-10.flex.flex-col.gap-y-2.slate-800.text-18(class="xs:mt-20 xs:bg-white lg:pr-10 lg:shadow-none lg:bg-transparent lg:mt-5") ویژگی های کالا
+								li.slate-800(class="text-[16px]") حافظه داخلی :
+								p.slate-800.text-18 128 گیگابایت
+
+								li.slate-800(class="text-[16px]") بازه اندازه صفحه نمایش :
+								p.slate-800.text-18 0.6 اینچ و یا بزرگتر
+								li.slate-800(class="text-[16px]") شبکه های ارتباطی :
+								p.slate-800.text-18 2G 3G 4G 5G
+				.sectionOne--two.flex.flex-col.gap-y-5.rounded-md(class="lg:h-fit lg:stone-bk-100 p-8 bg-white lg:bg-gray-200 mt-[50px] lg:mt-0")
+
+					.product--item--detail.flex.flex-row.w-full.flex-wrap.my-9.justify-center.gap-y-9(class="hidden lg:flex")
+						.product--item--detail--item.flex.w-full(class="xs:flex-row lg:flex-col gap-y-7")
+							.product--item--detail--item--wrapper.flex.flex-row.text-16.slate-800.items-center(class="xs:flex-[1_1_50%] xs:ml-7 justify-center lg:w-fit lg:justify-start")
+								.product--item--detail--item--wrapper--head.flex.flex-row
+									img.ml-2(src="./img/shop.svg" alt="")
+									span فروشنده :	
+								p.product--item--detail--item--wrapper-body.text-16.slate-18.font-light.mr-8(class="text-[14px]") دیجی تایز
+							.product--item--detail--item--wrapper.flex.flex-row.text-16.slate-800.items-center(class="xs:flex-[1_1_50%] xs:ml-7 justify-center lg:w-fit lg:justify-start ") 
+								.product--item--detail--item--wrapper--head.flex.flex-row
+									img.ml-2(src="./img/shop.svg" alt="")
+									span گارانتی :	
+								p.product--item--detail--item--wrapper-body.slate-18.font-light.mr-8(class="text-[14px]")  18 ماه زرین خدمت
+						.product--item--detail--item--wrapper.flex.flex-row.slate-800.items-center(class="fle xs:ml-7 justify-center  xs:flex-[1_1_100%] lg:justify-start") 
+							.product--item--detail--item--wrapper--head.flex.flex-row.text-16.slate-800
+								img.ml-2(src="./img/shop.svg" alt="")
+								span  ارسال توسط :	
+							p.product--item--detail--item--wrapper-body.slate-18.font-light.mr-8(class="text-[14px]") انبار تهران
+
+					#addToCart.w-full.h-auto.px-11.flex.py-5.rounded-item.justify-evenly(class="bg-white   shadow-default lg:shadow-none lg:bg-transparent lg:flex-col-reverse lg:p-0 ")
+						a.addTocart(href="./cart.html" class="mt-5") اضافه به سبد خرید
+						p.addToCart__price.text-title.slate-800.flex.flex-col.gap-y-1(class="xs:flex-col lg:flex-row lg:text-orange-500 lg:items-center lg:justify-end lg:ml-3") 2،550،000
+							span.addToCart__price__prefix.slate-800.font-light.text-18 تومان
+			figcaption.flex.flex-col.gap-y-10
+				.product--item--caption--item(class="lg:shadow-none")
+					h2.product--item--caption--item__Title.slate-800.text-title.mb-5 نقد و بررسی این محصول
+
+					p#comment.text-16.slate-800 آیفون ۱۳ از سری پرچمداران ۲۰۲۱ اپل با قابلیت های فراوان است که در تاریخ ۱۴ سپتامبر به صورت رسمی رونمایی شد و پس از گذشت مدتی در تاریخ ۲۴ سپتامبر به بازارهای جهانی راه یافت و توانست بسیاری از طرفداران برند اپل را به خرید متقاعد سازد. طراحی iPhone 13 Pro مشابه سری پیشین با تغییراتی جزئی است که در رنگ های زیبای آبی، مشکی گرافیت، طلایی و نقره ای عرضه شده است
+
+					a.text-orange-400.text-left.mt-8.text-20(href="javascript:void(0)") ادامه مطلب ... 
+				.product--item--caption--item(class="lg:shadow-none" x-data="{tabnine : 1 , activeClass:'active'}")
+					.selector.my-7.rounded-full.shadow-default.mx-auto.stone-bk-100.flex.justify-around(class="w-[320px]")
+						span.py-5.px-8.cursor-pointer.slate-700.text-18.h-full(@click="tabnine = 1" :class="tabnine === 1 ? activeClass : '' " ) دوربین 
+						span.py-5.px-8.cursor-pointer.slate-700.text-18.h-full(@click="tabnine = 2" :class="tabnine === 2 ? activeClass : '' " ) طراحی 
+						span.py-5.px-8.cursor-pointer.slate-700.text-18.h-full(@click="tabnine = 3" :class="tabnine === 3 ? activeClass : ''") باتری 
+					.slice( x-show-="tabnine === 1")
+						h2.product--item--caption--item__Title.slate-800.mb-5(class="text-20") افکت جذاب
+
+						p.text-16.slate-800.mb-5 کیفیت بسیار بالای دوربین در گوشی های آیفون همواره در بین کاربران علاقه مند به دنیای تکنولوژی زبانزد بوده است. iPhone 13 Pro نیز با دوربین اصلی چهارگانه خود و بهره مندی از قابلیت سینماتیک توانسته است بسیار محبوب واقع شود.  
+					.slice( x-show-="tabnine === 2")
+						h2.product--item--caption--item__Title.slate-800.mb-5(class="text-20") باز طراحی
+
+						p.text-16.slate-800.mb-5 کمپانی اپل پس از معرفی سری آیفون ۱۲ بار دیگر طراحی گوشی های خود، با فریم های پهن و زاویه دار را مورد 
+					.slice( x-show-="tabnine === 3")
+						h2.product--item--caption--item__Title.slate-800.mb-5(class="text-20") طراحی
+
+						p.text-16.slate-800.mb-5(class="transition duration-800") در بین هواداران گوشی های آیفون همیشه دغدغه باتری و ظرفیت پایین آن وجود داشته است. آیفون ۱۳ پرو با باتری قدرتمند 3095 میلی آمپری توانسته است .
+
+					h2.product--item--caption--item__Title.slate-800.mb-5(class="text-20") دوربین
+
+					p.text-16.slate-800.mb-5 کیفیت بسیار بالای دوربین در گوشی های آیفون همواره در بین کاربران علاقه مند به دنیای تکنولوژی زبانزد بوده است. iPhone 13 Pro نیز با دوربین اصلی چهارگانه خود و بهره مندی از قابلیت سینماتیک توانسته است بسیار محبوب واقع شود. دوربین اصلی در نظر گرفته شده برای این مدل به ترتیب از یک لنز عریض ۱۲ مگاپیکسلی با دریچه دیافراگم f/1.5، لنز تله فوتو ۱۲ مگاپیکسلی با دریچه دیافراگم f/2.8، لنز ۱۲ مگاپیکسلی فوق عریض با دریچه دیافراگم f/1.8 و یک سنسور TOF 3D LiDAR تشکیل شده است که قابلیت های ویژه ای را به آیفون ۱۳ پرو بخشیده اند. در قسمت جلو نیز درون ناچ تعبیه شده در بالای نمایشگر یک لنز ۱۲ مگاپیکسلی عریض و یک سنسور عمق و تشخیص چهره از نوع SL 3D تعبیه شده که امکانات منحصر به فردی را در هنگام عکس برداری و فیلم برداری در اختیار کاربر قرار می دهد.
+					h2.product--item--caption--item__Title.slate-800.mb-5(class="text-20") باتری
+
+					p.text-16.slate-800.mb-5 در بین هواداران گوشی های آیفون همیشه دغدغه باتری و ظرفیت پایین آن وجود داشته است. آیفون ۱۳ پرو با باتری قدرتمند 3095 میلی آمپری توانسته است دغدغه های کاربران را به خوبی رفع کند. این گوشی دارای قابلیت شارژ سریع ۲۳ وات است که این اطمینان را به کاربر می دهد که انرژی دستگاه را در کوتاه ترین زمان ممکن مجددا بازیابی خواهد شد. البته قابلیت شارژ بی سیم ۱۵ وات با استفاده از مگ سیف نیز از دیگر ویژگی های iPhone 13 Pro محسوب می شوند.
+
+
+
+
+
+
+
+
+
+
+
+block footer
+	include ./_footer
+
+
+	// Attached links & Script Which must be loaded at the end
+block script
+
+	script(src="./js/jquery-3.6.0.min.js") 
+	script(src="./js/alpine.min.js") 
+	script(src="./js/script.js") 
+	script(src="")  

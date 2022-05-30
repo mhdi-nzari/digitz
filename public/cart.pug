@@ -1,0 +1,83 @@
+extends ./_layout
+
+block headstyle
+
+block header
+	include ./_headerWithOutLogo
+	include ./_headerProduct
+block content
+
+	// breadcrumb in for cart
+	nav(class="w-full lg:w-3/4  py-10 px-10 ").flex.flex-row.justify-between
+		ul.breadcrumb.text-18.slate-800.font-medium سبد خرید 
+		a(href="./index.html").w-fit.text-orange-400.font-medium.text-16 بازگشت به خانه
+	section.flex.w-full(class="flex-col gap-y-10 lg:flex-row lg:gap-x-10")
+		.product--wrapper.bg-white.rounded-item.flex.flex-col.gap-y-10(class="w-full  mr-0  lg:w-3/4 lg:mr-5 ")
+			each val in ['./img/watch/1.jpg' , './img/watch/2.jpg' , './img/watch/3.jpg' , './img/watch/4.jpg']
+				figure.product--wrapper--items.flex.justify-between(class="p-10")
+					#dataOne.flex.gap-y-10
+						a(href="./index.html")
+							img(src=val, alt="product--item" class="w-60") 
+
+						.product--detail.flex.flex-col.justify-evenly
+							a(href="./index.html" class="text-15 lg:text-18").product--detail__title.font-normal.slate-800 ساعت هوشمند اپل سری 6
+
+							p.product--detail__price.flex.flex-row.font-bold.text-20.orange-400(class="text-20 lg:text-16") 4,450,000
+								span.product--detail__price__prefix.mr-3.font-normal.text-18 تومان
+
+
+					.prduct--detail--services.flex.flex-col.justify-evenly.items-center
+						a(href="javascript:void(0)")
+							svg(width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg")
+								line(x1="22.5004" y1="2.12132" x2="2.12135" y2="22.5003" stroke="#FC5858" stroke-width="3" stroke-linecap="round")
+								line(x1="1.5" y1="-1.5" x2="30.3203" y2="-1.5" transform="matrix(0.707107 0.707107 0.707107 -0.707107 2.49951 0)" stroke="#FC5858" stroke-width="3" stroke-linecap="round")
+
+						.counter.flex.flex-row.gap-x-5.items-center
+							button.More(class="gray-bk-300 p-[8px] rounded-full  w-fit h-fit") 
+								svg(width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg")
+									line(x1="0.75" y1="-0.75" x2="9.93358" y2="-0.75" transform="matrix(1 0 -0.104947 0.994478 1.27686 6.39648)" stroke="#222F5D" stroke-width="1.5" stroke-linecap="round")
+									line(x1="0.75" y1="-0.75" x2="9.93358" y2="-0.75" transform="matrix(0 -1 -0.994478 0.104947 5.89661 11.0122)" stroke="#222F5D" stroke-width="1.5" stroke-linecap="round")
+							input#counter(type="text" value="0" min="0" max="99" class="border-orange-400 text-slate-800 text-18 w-14 h-16 text-center focus:border-orange-400 focus:ring-0 ")
+							button.less(class="orange-bk-300 p-[8px] rounded-full  w-fit h-fit ")
+								svg(width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg")
+									line(x1="0.75" y1="-0.75" x2="9.93358" y2="-0.75" transform="matrix(1 0 -0.104947 0.994478 0.873291 5.39648)" stroke="#FC5858" stroke-width="1.5" stroke-linecap="round") 
+
+		aside(class="w-full lg:w-1/4  flex flex-col gap-y-10 ")
+			.product--bill.bg-white.rounded-item(class=" px-10 py-16 h-fit gap-y-10 flex flex-col")
+				.priceAll.flex.justify-between
+					p.priceAll--text.slate-900.font-normal.text-17 مجموع قیمت :
+					.price.orange-400.flex.flex.row.justify-between.font-normal.text-17
+						span.font-bold.ml-3 4،560،214 
+						span تومان
+				.offerCode.flex.justify-between.items-center
+					p.offerCode--text.slate-900.font-normal.text-17 کد تخفیف : 
+					.offerCode--box.relative.overflow-hidden
+						input.offerCode--box(type="text" placeholder="123ABC" class=" w-full rounded-lg px-8 py-5 text-slate-800 text-16")
+						a(href="javascript:void(0)" class="w-fit  h-full flex my-auto px-4 text-19 rounded-tl-lg rounded-bl-lg orange-bk-400 text-white absolute top-0 left-0 items-center ") تایید
+				.valueOffer.flex.justify-between
+					p.valueOffer--text.slate-900.font-normal.text-17 تخفیف :
+					.price.slate-900.flex.flex.row.justify-between.font-normal.text-17
+						span.ml-3 25،000
+						span تومان
+				.finalPrice.flex.justify-between
+					p.finalPrice--text.slate-900.font-normal.text-17 قیمت نهائی :
+					.price.orange-400.flex.flex.row.justify-between.font-normal.text-17
+						span.font-bold.ml-3 4،560،214 
+						span تومان
+			.buttons.flex.flex-col.gap-y-5 
+				a.forward--card.orange-bk-400.rounded-lg.text-white.font-bold.text-20.py-3.w-full.text-center(href="javascript:void(0)")  ادامه  فرآیند خرید
+				a.forward--card.border-orange-400.rounded-lg.border-dashed.border-2.border-orange-600.orange-400.bg-transparent.font-bold.text-20.py-3.w-full.text-center(href="javascript:void(0)")  انصراف از خرید
+
+
+	include ./_navBarMobile
+block footer
+	include ./_footer
+
+
+	// Attached links & Script Which must be loaded at the end
+block script
+
+	script(src="./js/jquery-3.6.0.min.js") 
+	script(src="./js/alpine.min.js") 
+	script(src="./js/script.js")
+	script. 

@@ -1,0 +1,63 @@
+extends ./_layout
+
+block headstyle
+
+block header
+	include ./_headerProduct
+	// The middle part of the website
+block content
+	include ./_main
+
+block footer
+	include ./_footer
+
+
+
+	// Attached links & Script Which must be loaded at the end
+block script
+
+	script(src="./js/jquery-3.6.0.min.js") 
+	script(src="./js/ion.rangeSlider.min.js") 
+	script(src="./js/alpine.min.js")
+	script.
+		const ignoreClickOnMeElement = document.querySelector(".filterProduct"),
+		filterBtn = document
+		.querySelector("#filter-btn")
+		.addEventListener("click", (e) => {
+			document.querySelector(".filterProduct").classList.remove("hide");
+			document.querySelector(".filterProduct").classList.add("show");
+		});
+
+		document.addEventListener("click", (evt) => {
+		const flyoutEl = document.getElementsByClassName("filterProduct");
+		let targetEl = evt.target; // clicked element
+		do {
+		if (targetEl == flyoutEl) {
+			// This is a click inside, does nothing, just return.
+			document.getElementById("flyout-debug").textContent = "Clicked inside!";
+			return;
+		}
+		// Go up the DOM
+		targetEl = targetEl.parentNode;
+		} while (targetEl);
+		console.log("out");
+		// document.getElementById("flyout-debug").textContent = "Clicked outside!";
+		});
+
+		$(".js-range-slider").ionRangeSlider({
+			type: "single",
+			min: 1900000,
+			max: 59312000,
+			from: 40000000,
+			to: 59312000,
+
+			keyboard: true,
+			grid_num: 4,
+			grid: true,
+			to_fixed: true,
+			from_shadow: true,
+			prettify_separator: "،",
+			prettify_enabled: true,
+			});
+
+
